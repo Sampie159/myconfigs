@@ -72,8 +72,8 @@ require('lazy').setup({
   -- Debugging
   'mfussenegger/nvim-dap',
 
-  -- Formatter
-  'mhartington/formatter.nvim',
+  -- Null Ls
+  'jose-elias-alvarez/null-ls.nvim',
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
@@ -102,6 +102,12 @@ require('lazy').setup({
 
   -- Rust things
   'simrat39/rust-tools.nvim',
+
+  -- Plenary
+  'nvim-lua/plenary.nvim',
+
+  -- Prettier
+  'MunifTanjim/prettier.nvim',
 
   {
     -- Autocompletion
@@ -286,11 +292,6 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
--- Formatter
-require('formatter').setup()
-vim.keymap.set('n', '<leader>f', ':Format<cr>')
-vim.keymap.set('n', '<leader>F', ':FormatWrite<cr>')
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -587,5 +588,69 @@ rt.setup({
   },
 })
 
+-- Null Ls
+local null_ls = require("null-ls")
+local group = vim.api.nvim_create_augroup("lsp_format_on_save", { clear = false })
+local event = "BufWritePre"
+local async = event == "BufWritePost"
+
+null_ls.setup({
+  on_attach = function(client, bufnr)
+    if client.supports_method("textDocument/formatting") then
+      vim.keymap.set("n", "<leader>f", function () 
+        vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() }) end,
+        { buffer = bufnr, desc = "[lsp] format" })
+
+    vim.api.nvim_clear_autocmds({ buffer = bufnr, group = group })
+    vim.api.nvim_create_autocmd(event, {
+      buffer = bufnr,
+      group = group,
+      callback = function()
+        vim.lsp.buf.format({ bufnr = bufnr, async = async })
+      end,
+      desc = '[lsp] format on save',
+    })
+    end
+
+    if client.supports_method("textDocument/rangeFormatting") then
+      vim.keymap.set("x", "<leader>f", function()
+        vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
+      end, { buffer = bufnr, desc = "[lsp] format" })
+    end
+  end,
+})
+
+-- Prettier
+local prettier = require("prettier")
+
+prettier.setup({
+  bin = 'prettier',
+  filetypes = {
+    "css",
+    "graphql",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "less",
+    "markdown",
+    "scss",
+    "typescript",
+    "typescriptreact",
+    "yaml",
+  },
+  ["null-ls"] = {
+    condition = function()
+      return prettier.config_exists({
+        check_package_json = true,
+      })
+    end,
+    runtime_condition = function(params)
+      return true
+    end,
+    timeout = 5000,
+  },
+})
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
