@@ -78,6 +78,12 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
+  -- Haskell
+  'mrcjkb/haskell-tools.nvim',
+
+  -- Java
+  'mfussenegger/nvim-jdtls',
+
   -- Terminal
   { 'akinsho/toggleterm.nvim', version = "*", config = true },
 
@@ -570,6 +576,9 @@ end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
+-- Devicons
+require'nvim-web-devicons'.get_icons()
+
 -- Nvim Tree
 require('nvim-tree').setup()
 
@@ -650,6 +659,16 @@ prettier.setup({
     timeout = 5000,
   },
 })
+
+-- Haskell
+require("haskell-tools").setup {}
+
+-- Java
+local javaconfig = {
+  cmd = {'/usr/bin/jdtls'},
+  root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
+}
+require('jdtls').start_or_attach(javaconfig)
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
