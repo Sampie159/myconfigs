@@ -81,9 +81,6 @@ require('lazy').setup({
   -- Haskell
   'mrcjkb/haskell-tools.nvim',
 
-  -- Java
-  'mfussenegger/nvim-jdtls',
-
   -- Terminal
   { 'akinsho/toggleterm.nvim', version = "*", config = true },
 
@@ -602,7 +599,14 @@ local group = vim.api.nvim_create_augroup("lsp_format_on_save", { clear = false 
 local event = "BufWritePre"
 local async = event == "BufWritePost"
 
+local null_sources = {
+  null_ls.builtins.formatting.rustfmt,
+  null_ls.builtins.formatting.clang_format,
+  null_ls.builtins.formatting.gofumpt
+}
+
 null_ls.setup({
+  sources = null_sources,
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
       vim.keymap.set("n", "<leader>f", function () 
@@ -661,13 +665,6 @@ prettier.setup({
 
 -- Haskell
 require("haskell-tools").setup {}
-
--- Java
-local javaconfig = {
-  cmd = {'/usr/bin/jdtls'},
-  root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
-}
-require('jdtls').start_or_attach(javaconfig)
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
