@@ -57,6 +57,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Fat cursor
+vim.opt.guicursor = ""
+
 -- NOTE: Here is where you install your plugins.
 --  You can configure plugins using the `config` key.
 --
@@ -83,6 +86,9 @@ require('lazy').setup({
 
   -- Terminal
   { 'akinsho/toggleterm.nvim', version = "*", config = true },
+
+  -- Move.nvim
+  "fedepujol/move.nvim",
 
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -141,12 +147,7 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
+    "catppuccin/nvim", name = "catppuccin"
   },
 
   {
@@ -290,6 +291,15 @@ vim.keymap.set('n', ';e', ':NvimTreeToggle<cr>')
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+
+-- Copied from ThePrimeagen
+vim.keymap.set("x", "<leader>p", "\"_dP")
+vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", ";s", [[:%s/\<<C-r><C-w>\>/<C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<cr>", { silent = true })
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -602,7 +612,8 @@ local async = event == "BufWritePost"
 local null_sources = {
   null_ls.builtins.formatting.rustfmt,
   null_ls.builtins.formatting.clang_format,
-  null_ls.builtins.formatting.gofumpt
+  null_ls.builtins.formatting.gofumpt,
+  null_ls.builtins.formatting.fourmolu
 }
 
 null_ls.setup({
@@ -665,6 +676,22 @@ prettier.setup({
 
 -- Haskell
 require("haskell-tools").setup {}
+
+-- Catppuccin
+require("catppuccin").setup()
+vim.cmd.colorscheme("catppuccin-mocha")
+
+-- Move.nvim
+local moveopts = { noremap = true, silent = true }
+
+vim.keymap.set('n', '<A-j>', ':MoveLine(1)<CR>', moveopts)
+vim.keymap.set('n', '<A-k>', ':MoveLine(-1)<CR>', moveopts)
+vim.keymap.set('n', '<A-h>', ':MoveHChar(-1)<CR>', moveopts)
+vim.keymap.set('n', '<A-l>', ':MoveHChar(1)<CR>', moveopts)
+vim.keymap.set('v', '<A-j>', ':MoveBlock(1)<CR>', moveopts)
+vim.keymap.set('v', '<A-k>', ':MoveBlock(-1)<CR>', moveopts)
+vim.keymap.set('v', '<A-h>', ':MoveHBlock(-1)<CR>', moveopts)
+vim.keymap.set('v', '<A-l>', ':MoveHBlock(1)<CR>', moveopts)
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
