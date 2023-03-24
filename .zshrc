@@ -72,13 +72,6 @@ ZSH_THEME="jonathan"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   archlinux
-  cabal
-  git
-  github
-  gh
-  rust
-  spring
-  systemd
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -108,7 +101,36 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# General aliases
+
 alias sudo="doas"
+alias hypr="Hyprland"
+alias nv="nvim"
+alias po="poweroff"
+alias rb="reboot"
+
+# Git aliases
+
+alias ga="git add"
+alias gaa="git add ."
+alias gc="git commit -m"
+alias gck="git checkout"
+alias gcb="git checkout -b"
+alias gf="git fetch"
+alias gm="git merge"
+alias gpl="git pull"
+alias gps="git push"
+alias gr="git rebase"
+alias gs="git status"
+
+# GitHub CLI aliases
+
+alias ghrn="gh repo create"
+alias ghrc="gh repo clone"
+
+# Rust aliases
+
 alias ca="cargo add"
 alias cb="cargo build"
 alias cbr="cargo build --release"
@@ -120,10 +142,19 @@ alias cw="cargo watch -x"
 alias cwb="cargo watch -x build"
 alias cwr="cargo watch -x run"
 alias cwt="cargo watch -x test"
+
+# MariaDB alias
+alias mdb="mariadb -u root -p"
+
+# Makefile aliases
+
+alias mc="make clean"
+alias mr="make run"
+alias mrl="make release"
 alias mt="make test"
-alias nv="nvim"
-alias po="poweroff"
-alias rb="reboot"
+
+# Redshift aliases
+
 alias redon="redshift -P -O 3400"
 alias redoff="redshift -P -O 6500"
 alias redset="redshift -P -O"
