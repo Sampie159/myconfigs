@@ -103,7 +103,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # General aliases
-
 alias sudo="doas"
 alias hypr="Hyprland"
 alias nv="nvim"
@@ -111,7 +110,6 @@ alias po="poweroff"
 alias rb="reboot"
 
 # Git aliases
-
 alias ga="git add"
 alias gaa="git add ."
 alias gc="git commit -m"
@@ -125,12 +123,10 @@ alias gr="git rebase"
 alias gs="git status"
 
 # GitHub CLI aliases
-
 alias ghrn="gh repo create"
 alias ghrc="gh repo clone"
 
 # Rust aliases
-
 alias ca="cargo add"
 alias cb="cargo build"
 alias cbr="cargo build --release"
@@ -147,14 +143,30 @@ alias cwt="cargo watch -x test"
 alias mdb="mariadb -u root -p"
 
 # Makefile aliases
-
 alias mc="make clean"
 alias mr="make run"
 alias mrl="make release"
 alias mt="make test"
 
 # Redshift aliases
-
 alias redon="redshift -P -O 3400"
 alias redoff="redshift -P -O 6500"
 alias redset="redshift -P -O"
+
+# NPM aliases
+alias nin="npm install"
+alias nrd="npm run dev"
+
+# Svelte aliases
+alias svnew="npm create svelte@latest"
+alias twin="npm install -D tailwindcss postcss autoprefixer"
+alias twcfg="npx tailwindcss init tailwind.config.cjs -p"
+
+# T3 stack aliases
+alias t3new="npm create t3-app@latest"
+
+# Tmux aliases
+alias t="tmux"
+alias tns="tmux new -s"
+alias tks="tmux kill-session -t"
+alias tls="tmux ls"

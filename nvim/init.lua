@@ -60,6 +60,9 @@ vim.opt.rtp:prepend(lazypath)
 -- Fat cursor
 vim.opt.guicursor = ""
 
+-- Kill buffer
+vim.keymap.set("n", "<leader>bk", "<cmd>:bdelete<CR>")
+
 -- NOTE: Here is where you install your plugins.
 --  You can configure plugins using the `config` key.
 --
@@ -90,6 +93,9 @@ require('lazy').setup({
   -- Move.nvim
   "fedepujol/move.nvim",
 
+  -- Harpoon
+  'theprimeagen/harpoon',
+
   --  The configuration is done below. Search for lspconfig to find it below.
   {
     -- LSP Configuration & Plugins
@@ -107,6 +113,9 @@ require('lazy').setup({
       'folke/neodev.nvim',
     },
   },
+
+  -- Eslint
+  'MunifTanjim/eslint.nvim',
 
   -- Rust things
   'simrat39/rust-tools.nvim',
@@ -204,6 +213,9 @@ require('lazy').setup({
       pcall(require('nvim-treesitter.install').update { with_sync = true })
     end,
   },
+
+  -- TreeSitter Context
+  'nvim-treesitter/nvim-treesitter-context',
 
   {
     'nvim-tree/nvim-tree.lua',
@@ -613,7 +625,10 @@ local null_sources = {
   null_ls.builtins.formatting.rustfmt,
   null_ls.builtins.formatting.clang_format,
   null_ls.builtins.formatting.gofumpt,
-  null_ls.builtins.formatting.fourmolu
+  null_ls.builtins.formatting.fourmolu,
+  null_ls.builtins.formatting.prettier.with({
+    extra_filetypes = { "svelte" },
+  }),
 }
 
 null_ls.setup({
@@ -655,22 +670,13 @@ prettier.setup({
     "javascriptreact",
     "json",
     "less",
+    "html",
     "markdown",
     "scss",
+    "svelte",
     "typescript",
     "typescriptreact",
     "yaml",
-  },
-  ["null-ls"] = {
-    condition = function()
-      return prettier.config_exists({
-        check_package_json = true,
-      })
-    end,
-    runtime_condition = function(params)
-      return true
-    end,
-    timeout = 5000,
   },
 })
 
@@ -692,6 +698,34 @@ vim.keymap.set('v', '<A-j>', ':MoveBlock(1)<CR>', moveopts)
 vim.keymap.set('v', '<A-k>', ':MoveBlock(-1)<CR>', moveopts)
 vim.keymap.set('v', '<A-h>', ':MoveHBlock(-1)<CR>', moveopts)
 vim.keymap.set('v', '<A-l>', ':MoveHBlock(1)<CR>', moveopts)
+
+-- Eslint
+require("eslint").setup()
+
+-- TreeSitter Context
+require'treesitter-context'.setup{
+  enable = true,
+  max_lines = 0,
+  min_window_height = 0,
+  line_numbers = true,
+  multiline_threshold = 20,
+  trim_scope = 'outer',
+  mode = 'cursor',
+  separator = nil,
+  zindex = 20,
+}
+
+-- Harpoon
+local har_mark = require('harpoon.mark')
+local har_ui = require('harpoon.ui')
+
+vim.keymap.set("n", "<leader>a", har_mark.add_file)
+vim.keymap.set("n", "<C-e>", har_ui.toggle_quick_menu)
+
+vim.keymap.set("n", "<C-h>", function() har_ui.nav_file(1) end)
+vim.keymap.set("n", "<C-t>", function() har_ui.nav_file(2) end)
+vim.keymap.set("n", "<C-n>", function() har_ui.nav_file(3) end)
+vim.keymap.set("n", "<C-s>", function() har_ui.nav_file(4) end)
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
