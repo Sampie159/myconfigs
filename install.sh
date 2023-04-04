@@ -2,11 +2,10 @@
 
 set -eu -o pipefail
 
-sudo -n true
-test $? -eq 0 || exit 1 "You should have sudo privilege to run this script"
+sudo cat 
 
 echo installing EvErYtHiNg
-while read -r p ; do sudo pacman -S --needed --noconfirm $p ; done < <(cat << "EOF")
+while read -r p ; do sudo pacman -S --needed --noconfirm $p ; done < <(cat << "EOF"
   github-cli
   zip
   unzip
@@ -19,7 +18,21 @@ while read -r p ; do sudo pacman -S --needed --noconfirm $p ; done < <(cat << "E
   i3
   neovim
   nitrogen
+  opendoas
   alacritty
+EOF
+)
+
+git clone https://aur.archlinux.org/yay-git.git
+cd yay-git
+makepkg -si
+cd ..
+rm -rf yay-git
+
+while read -r p ; do yay -S $p ; done < <(cat << "EOF"
+    hyprland-nvidia
+    waybar-hyprland
+    hyprpaper-git
 EOF
 )
 
@@ -29,24 +42,27 @@ echo hit C-c
 echo or wait for the installation
 sleep 6
 
+sudo echo "permit :wheel" /etc/doas.conf
+
 mkdir -p ~/.config ~/.config/alacritty ~/.config/nvim ~/.config/hypr \
     ~/.config/polybar ~/.config/i3 ~/.config/i3status ~/.config/waybar/scripts
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-rm ~/.zshrc
-
-ln -s .config/alacritty/alacritty.yml ~/.config/alacritty/
-ln -s .config/hypr/hyprland.conf ~/.config/hypr/
-ln -s .config/hypr/hyprpaper.conf ~/.config/hypr/
-ln -s .config/i3/config ~/.config/i3/
-ln -s .config/i3status/config ~/.config/i3status/
-ln -s .config/nvim/init.lua ~/.config/nvim/
-ln -s .config/polybar/config.ini ~/.config/polybar/
-ln -s .config/waybar/style.css ~/.config/waybar/
-ln -s .config/waybar/config.jsonc ~/.config/waybar/
-ln -s .config/waybar/scripts/waybar-wttr.py ~/.config/waybar/scripts
-ln -s .config/picom.conf ~/.config/
-ln -s .zshrc ~/
-ln -s .zshenv ~/
-ln -s .gitconfig ~/
+ln -sf .config/picom.conf ~/.config/
+ln -sf .config/nvim/init.lua ~/.config/nvim/
+ln -sf .config/alacritty/alacritty.yml ~/.config/alacritty/
+ln -sf .config/i3/config ~/.config/i3/
+ln -sf .config/i3status/config ~/.config/i3status/
+ln -sf .config/polybar/config.ini ~/.config/polybar
+ln -sf .config/hypr/hyprland.conf ~/.config/hypr/
+ln -sf .config/hypr/hyprpaper.comf ~/.config/hypr/
+ln -sf .config/waybar/scripts/waybar-wttr.py ~/.config/waybar/scripts/
+ln -sf .config/waybar/config.jsonc ~/.config/waybar/
+ln -sf .config/waybar/style.css ~/.config/waybar/
+ln -sf .zshrc ~/
+ln -sf .zshenv ~/
+ln -sf .gitconfig ~/
+sudo ln -sf mirrorlist /etc/pacman.d/
+sudo ln -sf pacman.conf /etc/
+sudo ln -sf makepkg.conf /etc/
