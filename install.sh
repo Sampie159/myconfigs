@@ -52,22 +52,22 @@ sudo mkdir -p /etc/pacman.d/hooks/
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-ln -sf .config/picom.conf ~/.config/
-ln -sf .config/nvim/init.lua ~/.config/nvim/
-ln -sf .config/alacritty/alacritty.yml ~/.config/alacritty/
-ln -sf .config/i3/config ~/.config/i3/
-ln -sf .config/i3status/config ~/.config/i3status/
-ln -sf .config/polybar/config.ini ~/.config/polybar
-ln -sf .config/hypr/hyprland.conf ~/.config/hypr/
-ln -sf .config/hypr/hyprpaper.comf ~/.config/hypr/
-ln -sf .config/waybar/scripts/waybar-wttr.py ~/.config/waybar/scripts/
-ln -sf .config/waybar/config.jsonc ~/.config/waybar/
-ln -sf .config/waybar/style.css ~/.config/waybar/
-ln -sf .zshrc ~/
-ln -sf .zshenv ~/
-ln -sf .gitconfig ~/
-sudo ln -sf mirrorlist /etc/pacman.d/
-sudo ln -sf nvidia.hook /etc/pacman.d/hooks/
-sudo ln -sf pacman.conf /etc/
-sudo ln -sf makepkg.conf /etc/
+ln -sf ~/myconfigs/picom.conf ~/.config/
+ln -sf ~/myconfigs/init.lua ~/.config/nvim/
+ln -sf ~/myconfigs/alacritty.yml ~/.config/alacritty/
+ln -sf ~/myconfigs/configi3 ~/.config/i3/config
+ln -sf ~/myconfigs/configi3status ~/.config/i3status/config
+ln -sf ~/myconfigs/config.ini ~/.config/polybar
+ln -sf ~/myconfigs/hyprland.conf ~/.config/hypr/
+ln -sf ~/myconfigs/hyprpaper.comf ~/.config/hypr/
+ln -sf ~/myconfigs/waybar-wttr.py ~/.config/waybar/scripts/
+ln -sf ~/myconfigs/config.jsonc ~/.config/waybar/
+ln -sf ~/myconfigs/style.css ~/.config/waybar/
+ln -sf ~/myconfigs/.zshrc ~/
+ln -sf ~/myconfigs/.zshenv ~/
+ln -sf ~/myconfigs/.gitconfig ~/
+sudo ln -sf ~/myconfigs/mirrorlist /etc/pacman.d/
+sudo ln -sf ~/myconfigs/nvidia.hook /etc/pacman.d/hooks/
+sudo ln -sf ~/myconfigs/pacman.conf /etc/
+sudo ln -sf ~/myconfigs/makepkg.conf /etc/
 sudo modprobe v4l2loopback

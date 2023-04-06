@@ -9,10 +9,6 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-#no title bar
-default_border pixel 2
-default_floating_border pixel 2
-
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -199,8 +195,6 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
-
-gaps outer 4px
 
 bindsym $mod+r mode "resize"
 
