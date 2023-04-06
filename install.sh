@@ -10,6 +10,7 @@ while read -r p ; do sudo pacman -S --needed --noconfirm $p ; done < <(cat << "E
   zip
   unzip
   wget
+  v4l2loopback
   curl
   perl
   npm
@@ -47,6 +48,8 @@ sudo echo "permit :wheel" /etc/doas.conf
 mkdir -p ~/.config ~/.config/alacritty ~/.config/nvim ~/.config/hypr \
     ~/.config/polybar ~/.config/i3 ~/.config/i3status ~/.config/waybar/scripts
 
+sudo mkdir -p /etc/pacman.d/hooks/
+
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 ln -sf .config/picom.conf ~/.config/
@@ -64,5 +67,7 @@ ln -sf .zshrc ~/
 ln -sf .zshenv ~/
 ln -sf .gitconfig ~/
 sudo ln -sf mirrorlist /etc/pacman.d/
+sudo ln -sf nvidia.hook /etc/pacman.d/hooks/
 sudo ln -sf pacman.conf /etc/
 sudo ln -sf makepkg.conf /etc/
+sudo modprobe v4l2loopback

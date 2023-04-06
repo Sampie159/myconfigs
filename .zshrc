@@ -154,7 +154,7 @@ alias redoff="redshift -P -O 6500"
 alias redset="redshift -P -O"
 
 # NPM aliases
-alias nin="npm install"
+alias nin="npm install -D"
 alias nrd="npm run dev"
 
 # Svelte aliases
