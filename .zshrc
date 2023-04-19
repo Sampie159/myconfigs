@@ -155,6 +155,7 @@ alias redset="redshift -P -O"
 
 # NPM aliases
 alias nin="npm install -D"
+alias ning="npm install -g"
 alias nrd="npm run dev"
 
 # Svelte aliases
@@ -170,3 +171,11 @@ alias t="tmux"
 alias tns="tmux new -s"
 alias tks="tmux kill-session -t"
 alias tls="tmux ls"
+
+# pnpm
+export PNPM_HOME="/home/sampie/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

@@ -96,6 +96,9 @@ require('lazy').setup({
   -- Harpoon
   'theprimeagen/harpoon',
 
+  -- vim-be-good
+  'theprimeagen/vim-be-good',
+
   --  The configuration is done below. Search for lspconfig to find it below.
   {
     -- LSP Configuration & Plugins
@@ -719,7 +722,7 @@ require'treesitter-context'.setup{
 local har_mark = require('harpoon.mark')
 local har_ui = require('harpoon.ui')
 
-vim.keymap.set("n", "<leader>a", har_mark.add_file)
+vim.keymap.set("n", ";a", har_mark.add_file)
 vim.keymap.set("n", "<C-e>", har_ui.toggle_quick_menu)
 
 vim.keymap.set("n", "<C-h>", function() har_ui.nav_file(1) end)
