@@ -172,6 +172,10 @@ alias tns="tmux new -s"
 alias tks="tmux kill-session -t"
 alias tls="tmux ls"
 
+# Haskell aliases
+alias cblin="cabal install --ghc-options=-dynamic"
+alias stin="stack install"
+
 # pnpm
 export PNPM_HOME="/home/sampie/.local/share/pnpm"
 case ":$PATH:" in

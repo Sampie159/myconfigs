@@ -299,6 +299,9 @@ vim.o.termguicolors = true
 vim.keymap.set('n', '<leader>fs', '<cmd>write<cr>')
 -- Quit file
 vim.keymap.set('n', ';q', ':q!<cr>')
+-- New file and directory
+vim.keymap.set('n', '<leader>f', ':e ')
+vim.keymap.set('n', '<leader>d', ':!mkdir ')
 
 -- Nvim Tree
 vim.keymap.set('n', ';e', ':NvimTreeToggle<cr>')
