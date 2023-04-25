@@ -16,6 +16,7 @@ while read -r p ; do sudo pacman -S --needed --noconfirm $p ; done < <(cat << "E
   npm
   nodejs
   polybar
+  tmux
   i3
   neovim
   nitrogen
@@ -46,11 +47,13 @@ sleep 6
 sudo echo "permit :wheel" /etc/doas.conf
 
 mkdir -p ~/.config ~/.config/alacritty ~/.config/nvim ~/.config/hypr \
-    ~/.config/polybar ~/.config/i3 ~/.config/i3status ~/.config/waybar/scripts
+    ~/.config/polybar ~/.config/i3 ~/.config/i3status ~/.config/waybar/scripts \
+    ~/.config/tmux
 
 sudo mkdir -p /etc/pacman.d/hooks/
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ln -sf ~/myconfigs/picom.conf ~/.config/
 ln -sf ~/myconfigs/init.lua ~/.config/nvim/
@@ -66,6 +69,7 @@ ln -sf ~/myconfigs/style.css ~/.config/waybar/
 ln -sf ~/myconfigs/.zshrc ~/
 ln -sf ~/myconfigs/.zshenv ~/
 ln -sf ~/myconfigs/.gitconfig ~/
+ln -sf ~/myconfigs/tmux.conf ~/.config/tmux
 sudo ln -sf ~/myconfigs/mirrorlist /etc/pacman.d/
 sudo ln -sf ~/myconfigs/nvidia.hook /etc/pacman.d/hooks/
 sudo ln -sf ~/myconfigs/pacman.conf /etc/

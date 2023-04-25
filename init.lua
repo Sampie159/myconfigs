@@ -75,6 +75,9 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
 
+  -- GitHub copilot
+  'github/copilot.vim',
+
   -- Debugging
   'mfussenegger/nvim-dap',
 
@@ -135,10 +138,13 @@ require('lazy').setup({
     dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
   },
 
+  -- Autopairs
   'windwp/nvim-autopairs',
+
+  -- Vim/tmux
   {
-    'aserowy/tmux.nvim',
-    config = function() return require('tmux').setup() end,
+    'christoomey/vim-tmux-navigator',
+    lazy = false,
   },
 
   -- Useful plugin to show you pending keybinds.
@@ -300,8 +306,8 @@ vim.keymap.set('n', '<leader>fs', '<cmd>write<cr>')
 -- Quit file
 vim.keymap.set('n', ';q', ':q!<cr>')
 -- New file and directory
-vim.keymap.set('n', '<leader>f', ':e ')
-vim.keymap.set('n', '<leader>d', ':!mkdir ')
+vim.keymap.set('n', ';f', ':e ')
+vim.keymap.set('n', ';d', ':!mkdir ')
 
 -- Nvim Tree
 vim.keymap.set('n', ';e', ':NvimTreeToggle<cr>')
@@ -732,6 +738,12 @@ vim.keymap.set("n", "<C-h>", function() har_ui.nav_file(1) end)
 vim.keymap.set("n", "<C-t>", function() har_ui.nav_file(2) end)
 vim.keymap.set("n", "<C-n>", function() har_ui.nav_file(3) end)
 vim.keymap.set("n", "<C-s>", function() har_ui.nav_file(4) end)
+
+-- Vim/tmux
+vim.keymap.set("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>")
+vim.keymap.set("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>")
+vim.keymap.set("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>")
+vim.keymap.set("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>")
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
