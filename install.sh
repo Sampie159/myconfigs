@@ -54,6 +54,7 @@ sudo mkdir -p /etc/pacman.d/hooks/
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/catppuccin/alacritty.git ~/.config/alacritty/catppuccin
 
 ln -sf ~/myconfigs/picom.conf ~/.config/
 ln -sf ~/myconfigs/init.lua ~/.config/nvim/
