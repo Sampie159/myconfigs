@@ -4,6 +4,7 @@ set -eu -o pipefail
 
 sudo cat 
 
+sudo ln -sf ~/myconfigs/mirrorlist /etc/pacman.d/
 echo installing EvErYtHiNg
 while read -r p ; do sudo pacman -S --needed --noconfirm $p ; done < <(cat << "EOF"
   github-cli
@@ -60,7 +61,6 @@ ln -sf ~/myconfigs/.zshrc ~/
 ln -sf ~/myconfigs/.zshenv ~/
 ln -sf ~/myconfigs/.gitconfig ~/
 ln -sf ~/myconfigs/tmux.conf ~/.config/tmux
-sudo ln -sf ~/myconfigs/mirrorlist /etc/pacman.d/
 sudo ln -sf ~/myconfigs/pacman.conf /etc/
 sudo ln -sf ~/myconfigs/makepkg.conf /etc/
 sudo modprobe v4l2loopback
