@@ -154,17 +154,17 @@ alias redoff="redshift -P -O 6500"
 alias redset="redshift -P -O"
 
 # NPM aliases
-alias nin="npm install -D"
-alias ning="npm install -g"
-alias nrd="npm run dev"
+alias nin="pnpm install"
+alias ning="pnpm install -g"
+alias nrd="pnpm run dev"
 
 # Svelte aliases
-alias svnew="npm create svelte@latest"
-alias twin="npm install -D tailwindcss postcss autoprefixer"
+alias svnew="pnpm create svelte@latest"
+alias twin="pnpm install -D tailwindcss postcss autoprefixer"
 alias twcfg="npx tailwindcss init tailwind.config.cjs -p"
 
 # T3 stack aliases
-alias t3new="npm create t3-app@latest"
+alias t3new="pnpm create t3-app@latest"
 
 # Tmux aliases
 alias t="tmux"
