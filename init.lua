@@ -87,6 +87,9 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
+  -- Typescript?
+  'jose-elias-alvarez/typescript.nvim',
+
   -- Haskell
   'mrcjkb/haskell-tools.nvim',
 
@@ -634,6 +637,7 @@ local event = "BufWritePre"
 local async = event == "BufWritePost"
 
 local null_sources = {
+  require('typescript.extensions.null-ls.code-actions'),
   null_ls.builtins.formatting.rustfmt,
   null_ls.builtins.formatting.clang_format,
   null_ls.builtins.formatting.gofumpt,
@@ -750,6 +754,7 @@ vim.keymap.set("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>")
 vim.keymap.set("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>")
 vim.keymap.set("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>")
 vim.keymap.set("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>")
+
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
