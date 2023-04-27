@@ -139,7 +139,7 @@ require('lazy').setup({
   },
 
   -- Autopairs
-  'windwp/nvim-autopairs',
+  -- 'windwp/nvim-autopairs',
 
   -- Vim/tmux
   {
@@ -538,7 +538,7 @@ mason_lspconfig.setup_handlers {
 }
 
 -- nvim-cmp setup
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+-- local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 
@@ -583,10 +583,10 @@ cmp.setup {
   },
 }
 
-cmp.event:on(
-  'confirm_done',
-  cmp_autopairs.on_confirm_done()
-)
+-- cmp.event:on(
+--   'confirm_done',
+--   cmp_autopairs.on_confirm_done()
+-- )
 
 -- toggleterm
 require("toggleterm").setup()
@@ -613,7 +613,7 @@ require'nvim-web-devicons'.get_icons()
 require('nvim-tree').setup()
 
 -- Autopairs
-require('nvim-autopairs').setup()
+-- require('nvim-autopairs').setup()
 
 -- Rust things2
 local rt = require("rust-tools")
