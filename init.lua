@@ -135,10 +135,13 @@ require('lazy').setup({
   -- Prettier
   'MunifTanjim/prettier.nvim',
 
+  -- TS Autotag
+  'windwp/nvim-ts-autotag',
+
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
-    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip', 'hrsh7th/cmp-buffer' },
   },
 
   -- Autopairs
@@ -178,7 +181,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'papercolor_light',
         component_separators = '|',
         section_separators = '',
       },
@@ -587,6 +590,7 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'buffer' },
   },
 }
 
@@ -761,6 +765,9 @@ vim.keymap.set("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>")
 
 -- Copilot
 vim.keymap.set("n", "<leader>cp", "<cmd> Copilot<CR>")
+
+-- TS Autotag
+require('nvim-ts-autotag').setup()
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
