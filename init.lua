@@ -229,12 +229,15 @@ require('lazy').setup({
   -- TreeSitter Context
   'nvim-treesitter/nvim-treesitter-context',
 
-  {
-    'nvim-tree/nvim-tree.lua',
-    dependencies = {
-      'nvim-tree/nvim-web-devicons',
-    },
-  },
+  -- Web devicons
+  'nvim-tree/nvim-web-devicons',
+
+  -- {
+  --   'nvim-tree/nvim-tree.lua',
+  --   dependencies = {
+  --     'nvim-tree/nvim-web-devicons',
+  --   },
+  -- },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -313,7 +316,8 @@ vim.keymap.set('n', ';f', ':e ')
 vim.keymap.set('n', ';d', ':!mkdir ')
 
 -- Nvim Tree
-vim.keymap.set('n', ';e', ':NvimTreeToggle<cr>')
+-- vim.keymap.set('n', ';e', ':NvimTreeToggle<cr>')
+vim.keymap.set('n', ';e', ':e .<cr>')
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -613,7 +617,7 @@ vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 require'nvim-web-devicons'.get_icons()
 
 -- Nvim Tree
-require('nvim-tree').setup()
+-- require('nvim-tree').setup()
 
 -- Autopairs
 -- require('nvim-autopairs').setup()
@@ -755,6 +759,8 @@ vim.keymap.set("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>")
 vim.keymap.set("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>")
 vim.keymap.set("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>")
 
+-- Copilot
+vim.keymap.set("n", "<leader>cp", "<cmd> Copilot<CR>")
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
