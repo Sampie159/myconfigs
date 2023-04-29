@@ -157,6 +157,8 @@ alias redset="redshift -P -O"
 alias nin="pnpm install"
 alias ning="pnpm install -g"
 alias nrd="pnpm run dev"
+alias prin="pnpm install prisma --save-dev"
+alias prinit="npx prisma init --datasource-provider sqlite"
 
 # Svelte aliases
 alias svnew="pnpm create svelte@latest"
