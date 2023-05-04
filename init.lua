@@ -124,7 +124,7 @@ require('lazy').setup({
   },
 
   -- Eslint
-  'MunifTanjim/eslint.nvim',
+  -- 'MunifTanjim/eslint.nvim',
 
   -- Rust things
   'simrat39/rust-tools.nvim',
@@ -133,7 +133,7 @@ require('lazy').setup({
   'nvim-lua/plenary.nvim',
 
   -- Prettier
-  'MunifTanjim/prettier.nvim',
+  -- 'MunifTanjim/prettier.nvim',
 
   -- TS Autotag
   'windwp/nvim-ts-autotag',
@@ -233,14 +233,14 @@ require('lazy').setup({
   'nvim-treesitter/nvim-treesitter-context',
 
   -- Web devicons
-  'nvim-tree/nvim-web-devicons',
+  -- 'nvim-tree/nvim-web-devicons',
 
-  -- {
-  --   'nvim-tree/nvim-tree.lua',
-  --   dependencies = {
-  --     'nvim-tree/nvim-web-devicons',
-  --   },
-  -- },
+  {
+    'nvim-tree/nvim-tree.lua',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+  },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -316,11 +316,11 @@ vim.keymap.set('n', '<leader>fs', '<cmd>write<cr>')
 vim.keymap.set('n', ';q', ':q!<cr>')
 -- New file and directory
 vim.keymap.set('n', ';f', ':e ')
-vim.keymap.set('n', ';d', ':!mkdir ')
+vim.keymap.set('n', ';d', ':!mkdir -p ')
 
 -- Nvim Tree
--- vim.keymap.set('n', ';e', ':NvimTreeToggle<cr>')
-vim.keymap.set('n', ';e', ':e .<cr>')
+vim.keymap.set('n', ';e', ':NvimTreeToggle<cr>')
+-- vim.keymap.set('n', ';e', ':e .<cr>')
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -621,7 +621,7 @@ vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 require'nvim-web-devicons'.get_icons()
 
 -- Nvim Tree
--- require('nvim-tree').setup()
+require('nvim-tree').setup()
 
 -- Autopairs
 -- require('nvim-autopairs').setup()
@@ -683,26 +683,26 @@ null_ls.setup({
 })
 
 -- Prettier
-local prettier = require("prettier")
+-- local prettier = require("prettier")
 
-prettier.setup({
-  bin = 'prettier',
-  filetypes = {
-    "css",
-    "graphql",
-    "javascript",
-    "javascriptreact",
-    "json",
-    "less",
-    "html",
-    "markdown",
-    "scss",
-    "svelte",
-    "typescript",
-    "typescriptreact",
-    "yaml",
-  },
-})
+-- prettier.setup({
+--   bin = 'prettier',
+--   filetypes = {
+--     "css",
+--     "graphql",
+--     "javascript",
+--     "javascriptreact",
+--     "json",
+--     "less",
+--     "html",
+--     "markdown",
+--     "scss",
+--     "svelte",
+--     -- "typescript",
+--     "typescriptreact",
+--     "yaml",
+--   },
+-- })
 
 -- Haskell
 require("haskell-tools").setup {}
@@ -730,7 +730,7 @@ vim.keymap.set('v', '<A-h>', ':MoveHBlock(-1)<CR>', moveopts)
 vim.keymap.set('v', '<A-l>', ':MoveHBlock(1)<CR>', moveopts)
 
 -- Eslint
-require("eslint").setup()
+-- require("eslint").setup()
 
 -- TreeSitter Context
 require'treesitter-context'.setup{

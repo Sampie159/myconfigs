@@ -153,17 +153,19 @@ alias redon="redshift -P -O 3400"
 alias redoff="redshift -P -O 6500"
 alias redset="redshift -P -O"
 
-# NPM aliases
+# PNPM aliases
 alias nin="pnpm install"
 alias ning="pnpm install -g"
+alias nrb="pnpm run build"
+alias nrbp="pnpm run build && pnpm run preview"
 alias nrd="pnpm run dev"
-alias prin="pnpm install prisma --save-dev"
-alias prinit="npx prisma init --datasource-provider sqlite"
+alias prin="pnpm install @prisma/client"
+alias prinit="pnpx prisma init --datasource-provider sqlite"
 
 # Svelte aliases
 alias svnew="pnpm create svelte@latest"
 alias twin="pnpm install -D tailwindcss postcss autoprefixer"
-alias twcfg="npx tailwindcss init tailwind.config.cjs -p"
+alias twcfg="pnpx tailwindcss init tailwind.config.cjs -p"
 
 # T3 stack aliases
 alias t3new="pnpm create t3-app@latest"
@@ -185,3 +187,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# opam configuration
+[[ ! -r /home/sampie/.opam/opam-init/init.zsh ]] || source /home/sampie/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
