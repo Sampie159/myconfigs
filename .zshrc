@@ -159,13 +159,17 @@ alias ning="pnpm install -g"
 alias nrb="pnpm run build"
 alias nrbp="pnpm run build && pnpm run preview"
 alias nrd="pnpm run dev"
-alias prin="pnpm install @prisma/client"
+
+# Prisma aliases
+alias prin="pnpm install prisma @prisma/client"
 alias prinit="pnpx prisma init --datasource-provider sqlite"
+alias pps="pnpx prisma db push && pnpx prisma generate"
 
 # Svelte aliases
 alias svnew="pnpm create svelte@latest"
 alias twin="pnpm install -D tailwindcss postcss autoprefixer"
 alias twcfg="pnpx tailwindcss init tailwind.config.cjs -p"
+alias luin="pnpm add lucia-auth @lucia-auth/adapter-prisma"
 
 # T3 stack aliases
 alias t3new="pnpm create t3-app@latest"
