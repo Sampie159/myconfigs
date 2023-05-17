@@ -78,6 +78,9 @@ require('lazy').setup({
   -- GitHub copilot
   'github/copilot.vim',
 
+  -- Lazygit
+  'kdheepak/lazygit.nvim',
+
   -- Debugging
   'mfussenegger/nvim-dap',
 
@@ -362,6 +365,7 @@ require('telescope').setup {
     },
   },
 }
+
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
@@ -750,7 +754,7 @@ local har_mark = require('harpoon.mark')
 local har_ui = require('harpoon.ui')
 
 vim.keymap.set("n", ";a", har_mark.add_file)
-vim.keymap.set("n", "<C-e>", har_ui.toggle_quick_menu)
+vim.keymap.set("n", "<S-e>", har_ui.toggle_quick_menu)
 
 vim.keymap.set("n", "<C-h>", function() har_ui.nav_file(1) end)
 vim.keymap.set("n", "<C-t>", function() har_ui.nav_file(2) end)
@@ -764,11 +768,27 @@ vim.keymap.set("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>")
 vim.keymap.set("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>")
 
 -- Copilot
-vim.keymap.set("n", "<leader>cp", "<cmd> Copilot<CR>")
+vim.keymap.set("n", "<leader>cp", "<cmd> Copilot enable<CR>")
 
 -- TS Autotag
 require('nvim-ts-autotag').setup()
 
+-- Code navigation
+vim.keymap.set("i", "<C-b>", "<ESC>I")
+vim.keymap.set("n", "<C-b>", "<ESC>^")
+vim.keymap.set("i", "<C-e>", "<ESC>A")
+vim.keymap.set("n", "<C-e>", "<ESC>$")
+vim.keymap.set("i", "<M-f>", "<ESC><Space>Wi")
+vim.keymap.set("i", "<M-b>", "<ESC>Bi")
+vim.keymap.set("i", "<M-d>", "<ESC>cW")
+
+-- Set tabspace and shiftwidth to 2
+vim.keymap.set("n", "<leader>2", "<cmd> set ts=2 sw=2<CR>")
+
+-- Lazygit
+require('telescope').load_extension('lazygit')
+
+vim.keymap.set("n", "<leader>gg", "<CMD>LazyGit<CR>")
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
-
