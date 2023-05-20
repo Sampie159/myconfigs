@@ -619,7 +619,7 @@ vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
 vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
 vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
 
-vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+-- vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 -- Devicons
 require'nvim-web-devicons'.get_icons()
