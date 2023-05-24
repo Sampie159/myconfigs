@@ -1,1 +1,1 @@
-require("haskell-tools").setup {}
+require('haskell-tools').setup {}

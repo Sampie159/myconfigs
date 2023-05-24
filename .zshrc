@@ -108,6 +108,8 @@ alias hypr="Hyprland"
 alias nv="nvim"
 alias po="poweroff"
 alias rb="reboot"
+alias sk="screenkey -p fixed -g 15%x5%+84%-15% &"
+alias skk="killall screenkey"
 
 # Git aliases
 alias ga="git add"

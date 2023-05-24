@@ -45,7 +45,10 @@ local plugins = {
   'jose-elias-alvarez/typescript.nvim',
 
   -- Haskell
-  'mrcjkb/haskell-tools.nvim',
+  {
+    'mrcjkb/haskell-tools.nvim',
+    branch = '1.x.x',
+  },
 
   -- Move.nvim
   "fedepujol/move.nvim",

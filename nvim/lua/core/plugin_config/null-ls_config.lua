@@ -8,7 +8,7 @@ local null_sources = {
   null_ls.builtins.formatting.rustfmt,
   null_ls.builtins.formatting.clang_format,
   null_ls.builtins.formatting.gofumpt,
-  null_ls.builtins.formatting.fourmolu,
+  -- null_ls.builtins.formatting.fourmolu,
   null_ls.builtins.formatting.prettier.with({
     extra_filetypes = { "svelte" },
   }),
