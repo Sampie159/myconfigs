@@ -39,7 +39,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id picom -b --config ~/.config/picom.conf
 exec --no-startup-id nitrogen --restore -b
-exec --no-startup-id i3-layouts
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -116,7 +115,6 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (tabbed, toggle split)
-bindsym $mod+s exec i3l vstack 0.5
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 

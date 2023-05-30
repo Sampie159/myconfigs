@@ -112,6 +112,7 @@ alias po="poweroff"
 alias rb="reboot"
 alias sk="screenkey -p fixed -g 15%x5%+84%-15% &"
 alias skk="killall screenkey"
+alias btop="bpytop"
 
 # Git aliases
 alias ga="git add"
