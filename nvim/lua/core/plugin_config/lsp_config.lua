@@ -1,3 +1,5 @@
+local lsp = require('lspconfig')
+
 local on_attach = function(_, bufnr)
   local nmap = function(keys, func, desc)
     if desc then
@@ -49,6 +51,41 @@ local servers = {
   },
 }
 
+lsp.gopls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    gopls = {
+      gofumpt = true,
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    },
+  },
+}
+
+lsp.rust_analyzer.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    ['rust-analyzer'] = {
+      checkOnSave = {
+        command = 'clippy',
+      },
+      cargo = {
+        loadOutDirsFromCheck = true,
+      },
+      procMacro = {
+        enable = true,
+      },
+      rustfmt = {
+        extraArgs = { '--emit=stdout' },
+      },
+    },
+  },
+}
+
 -- Setup neovim lua configuration
 require('neodev').setup()
 
@@ -75,3 +112,5 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
+
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]

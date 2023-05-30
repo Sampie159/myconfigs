@@ -76,8 +76,8 @@ local plugins = {
     },
   },
 
-  -- Rust tools
-  'simrat39/rust-tools.nvim',
+  --  Rust tools
+  -- 'simrat39/rust-tools.nvim',
 
   -- Plenary
   'nvim-lua/plenary.nvim',

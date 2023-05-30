@@ -5,9 +5,9 @@ local async = event == "BufWritePost"
 
 local null_sources = {
   require('typescript.extensions.null-ls.code-actions'),
-  null_ls.builtins.formatting.rustfmt,
+  -- null_ls.builtins.formatting.rustfmt,
   null_ls.builtins.formatting.clang_format,
-  null_ls.builtins.formatting.gofumpt,
+  -- null_ls.builtins.formatting.gofumpt,
   -- null_ls.builtins.formatting.fourmolu,
   null_ls.builtins.formatting.prettier.with({
     extra_filetypes = { "svelte" },
@@ -34,7 +34,7 @@ null_ls.setup({
     end
 
     if client.supports_method("textDocument/rangeFormatting") then
-      vim.keymap.set("x", "<leader>f", function()
+      vim.keymap.set("x", "<leader>ff", function()
         vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
       end, { buffer = bufnr, desc = "[lsp] format" })
     end

@@ -9,5 +9,6 @@ run() {
 
 run "picom" -b --config ~/.config/picom.conf
 run "nitrogen" --restore -b
+run "polybar" -r main &
 
 # run ""

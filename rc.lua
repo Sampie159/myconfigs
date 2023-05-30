@@ -61,9 +61,9 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.tile,
+    awful.layout.suit.tile.left,
     awful.layout.suit.floating,
-    -- awful.layout.suit.tile.left,
+    -- awful.layout.suit.tile,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
     -- awful.layout.suit.fair,
@@ -247,17 +247,17 @@ globalkeys = gears.table.join(
               {description = "open emoji picker", group = "applications"}),
 
     -- Multimedia keys
-    awful.key({ }, "XF86AudioRaiseVolume", function () awful.spawn_with_shell("pactl set-sink-volume @DEFAULT_SINK@ +2%") end,
+    awful.key({ }, "XF86AudioRaiseVolume", function () awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +2%") end,
               {description = "raise volume", group = "multimedia"}),
-    awful.key({ }, "XF86AudioLowerVolume", function () awful.spawn_with_shell("pactl set-sink-volume @DEFAULT_SINK@ -2%") end,
+    awful.key({ }, "XF86AudioLowerVolume", function () awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -2%") end,
               {description = "lower volume", group = "multimedia"}),
-    awful.key({ }, "XF86AudioMute", function () awful.spawn_with_shell("pactl set-sink-mute @DEFAULT_SINK@ toggle") end,
+    awful.key({ }, "XF86AudioMute", function () awful.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle") end,
               {description = "mute volume", group = "multimedia"}),
-    awful.key({ }, "XF86AudioPlay", function () awful.spawn_with_shell("playerctl --ignore-player=firefox play-pause") end,
+    awful.key({ }, "XF86AudioPlay", function () awful.spawn("playerctl --ignore-player=firefox play-pause") end,
               {description = "play/pause music", group = "multimedia"}),
-    awful.key({ }, "XF86AudioNext", function () awful.spawn_with_shell("playerctl --ignore-player=firefox next") end,
+    awful.key({ }, "XF86AudioNext", function () awful.spawn("playerctl --ignore-player=firefox next") end,
               {description = "next song", group = "multimedia"}),
-    awful.key({ }, "XF86AudioPrev", function () awful.spawn_with_shell("playerctl --ignore-player=firefox previous") end,
+    awful.key({ }, "XF86AudioPrev", function () awful.spawn("playerctl --ignore-player=firefox previous") end,
               {description = "previous song", group = "multimedia"}),
 
     awful.key({ modkey,           }, "j",
@@ -582,6 +582,9 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+-- Gaps
+beautiful.useless_gap = 3
 
 -- Autorun
 awful.spawn.with_shell("~/.config/awesome/autorun.sh")
