@@ -51,6 +51,8 @@ local servers = {
   },
 }
 
+
+-- Go lsp config
 lsp.gopls.setup {
   capabilities = capabilities,
   on_attach = on_attach,
@@ -65,6 +67,7 @@ lsp.gopls.setup {
   },
 }
 
+-- Rust lsp config
 lsp.rust_analyzer.setup {
   capabilities = capabilities,
   on_attach = on_attach,
@@ -84,6 +87,33 @@ lsp.rust_analyzer.setup {
       },
     },
   },
+}
+
+-- Haskell lsp config
+lsp.hls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    haskell = {
+      formattingProvider = 'fourmolu',
+    },
+  },
+}
+
+-- C/C++ lsp config
+lsp.clangd.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  cmd = { 'clangd', '--background-index' },
+  filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
+  init_options = {
+    clangdFileStatus = true,
+    usePlaceholders = true,
+    completeUnimported = true,
+    semanticHighlighting = true,
+  },
+  root_dir = lsp.util.root_pattern('.clangd', '.clang-tidy', '.clang=format', 'configure.ac', 'compile_commands.json',
+    'compile_flags.txt', '.git'),
 }
 
 -- Setup neovim lua configuration

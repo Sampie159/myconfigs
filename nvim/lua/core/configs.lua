@@ -1,5 +1,5 @@
 -- Leader as <space>
-vim.g.mapleader = ' '   
+vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Fat Cursor
@@ -48,6 +48,9 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- Set colorscheme
 vim.o.termguicolors = true
+
+-- Set scrolloff
+vim.o.scrolloff = 8
 
 -- [[ Highlight on yank ]]
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })

@@ -44,12 +44,6 @@ local plugins = {
   -- Typescript
   'jose-elias-alvarez/typescript.nvim',
 
-  -- Haskell
-  {
-    'mrcjkb/haskell-tools.nvim',
-    branch = '1.x.x',
-  },
-
   -- Move.nvim
   "fedepujol/move.nvim",
 
@@ -76,9 +70,6 @@ local plugins = {
     },
   },
 
-  --  Rust tools
-  -- 'simrat39/rust-tools.nvim',
-
   -- Plenary
   'nvim-lua/plenary.nvim',
 
@@ -98,7 +89,7 @@ local plugins = {
   },
 
   -- Which key
-  { 'folke/which-key.nvim',    opts = {} },
+  { 'folke/which-key.nvim',          opts = {} },
 
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
