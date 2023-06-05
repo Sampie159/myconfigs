@@ -74,3 +74,6 @@ vim.keymap.set("i", "<M-d>", "<ESC>cW")
 
 -- Set tabspace and shiftwidth to 2
 vim.keymap.set("n", "<leader>2", "<cmd> set ts=2 sw=2<CR>")
+
+-- Set tabspace and shiftwidth to 4
+vim.keymap.set("n", "<leader>4", "<cmd> set ts=4 sw=4<CR>")

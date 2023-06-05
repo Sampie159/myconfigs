@@ -189,6 +189,12 @@ alias tls="tmux ls"
 alias cblin="cabal install --ghc-options=-dynamic"
 alias stin="stack install"
 
+# Meson aliases
+alias min="meson init build"
+alias ms="meson setup build"
+alias msw="meson setup --wipe build"
+alias mcb="meson compile -C build"
+
 # pnpm
 export PNPM_HOME="/home/sampie/.local/share/pnpm"
 case ":$PATH:" in

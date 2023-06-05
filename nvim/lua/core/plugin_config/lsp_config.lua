@@ -85,6 +85,12 @@ lsp.rust_analyzer.setup {
       rustfmt = {
         extraArgs = { '--emit=stdout' },
       },
+      imports = {
+        granularity = {
+          group = "module",
+        },
+        prefix = "self",
+      },
     },
   },
 }
