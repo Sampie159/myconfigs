@@ -11,9 +11,6 @@ vim.keymap.set('n', ';q', ':q!<cr>')
 vim.keymap.set('n', ';f', ':e ')
 vim.keymap.set('n', ';d', ':!mkdir -p ')
 
--- Nvim Tree
-vim.keymap.set('n', ';e', ':NvimTreeToggle<cr>')
-
 -- Keymaps for better default experience
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 

@@ -26,6 +26,9 @@ local plugins = {
     event = "InsertEnter",
   },
 
+  -- Todo Comments
+  'folke/todo-comments.nvim',
+
   -- Copilot-cmp
   'zbirenbaum/copilot-cmp',
 
@@ -162,8 +165,6 @@ local plugins = {
 
   -- Web devicons
   'nvim-tree/nvim-web-devicons',
-
-  'nvim-tree/nvim-tree.lua',
 }
 
 require('lazy').setup(plugins, {})
