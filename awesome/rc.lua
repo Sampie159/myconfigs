@@ -255,6 +255,14 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "p", function() awful.spawn("emoji-picker") end,
         { description = "open emoji picker", group = "applications" }),
 
+    -- Alacritty specific
+    awful.key({ modkey, "Shift" }, "n", function() awful.spawn("alacritty -e nvim") end,
+        { description = "open nvim", group = "applications" }),
+    awful.key({ modkey, "Shift" }, "r", function() awful.spawn("alacritty -e ranger") end,
+        { description = "open ranger", group = "applications" }),
+    awful.key({ modkey, "Shift" }, "h", function() awful.spawn("alacritty -e bpytop") end,
+        { description = "open bpytop", group = "applications" }),
+
     -- Multimedia keys
     awful.key({}, "XF86AudioRaiseVolume", function() awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +2%") end,
         { description = "raise volume", group = "multimedia" }),
@@ -337,10 +345,6 @@ globalkeys = gears.table.join(
             end
         end,
         { description = "restore minimized", group = "client" }),
-
-    -- Prompt
-    awful.key({ modkey }, "r", function() awful.screen.focused().mypromptbox:run() end,
-        { description = "run prompt", group = "launcher" }),
 
     awful.key({ modkey }, "x",
         function()
@@ -521,16 +525,41 @@ awful.rules.rules = {
         properties = { floating = true }
     },
 
-    -- Add titlebars to normal clients and dialogs
+    -- Set to always map on the tag named "1" on screen 1.
     {
-        rule_any = { type = { "normal", "dialog" }
-        },
-        properties = { titlebars_enabled = false }
+        rule_any = { class = { "Alacritty" }, },
+        properties = { screen = 1, tag = "1", switchtotag = true }
     },
 
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+    -- Set to always map on the tag named "2" on screen 1.
+    {
+        rule_any = { class = { "firefox" }, },
+        properties = { screen = 1, tag = "2", switchtotag = true }
+    },
+
+    -- Set to always map on the tag named "3" on screen 1.
+    {
+        rule_any = { class = { "discord" }, },
+        properties = { screen = 1, tag = "3", switchtotag = true }
+    },
+
+    -- Set to always map on the tag named "4" on screen 1.
+    {
+        rule_any = { class = { "steam", "Lutris" }, },
+        properties = { screen = 1, tag = "4", switchtotag = true }
+    },
+
+    -- Set to always map on the tag named "5" on screen 1.
+    {
+        rule_any = { class = { "TelegramDesktop" }, },
+        properties = { screen = 1, tag = "5", switchtotag = true }
+    },
+
+    -- Set to always map on the tag named "6" on screen 1.
+    {
+        rule_any = { class = { "mpv" }, },
+        properties = { screen = 1, tag = "6", switchtotag = true }
+    },
 }
 -- }}}
 
