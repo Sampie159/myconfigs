@@ -276,6 +276,16 @@ globalkeys = gears.table.join(
         { description = "next song", group = "multimedia" }),
     awful.key({}, "XF86AudioPrev", function() awful.spawn("playerctl --ignore-player=firefox previous") end,
         { description = "previous song", group = "multimedia" }),
+    awful.key({ modkey }, "XF86AudioRaiseVolume", function() awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ 60%") end,
+        { description = "set volume to 60%", group = "multimedia" }),
+    awful.key({ modkey }, "XF86AudioLowerVolume", function() awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ 20%") end,
+        { description = "set volume to 20%", group = "multimedia" }),
+
+    -- Redshift specific
+    awful.key({ modkey }, "=", function() awful.spawn("redshift -P -O 6500") end,
+        { description = "set redshift to 6500", group = "applications" }),
+    awful.key({ modkey }, "-", function() awful.spawn("redshift -P -O 3400") end,
+        { description = "set redshift to 3400", group = "applications" }),
 
     awful.key({ modkey, }, "j",
         function()
@@ -559,6 +569,12 @@ awful.rules.rules = {
     {
         rule_any = { class = { "mpv" }, },
         properties = { screen = 1, tag = "6", switchtotag = true }
+    },
+
+    -- Set to always map on the tag named "9" on screen 1.
+    {
+        rule_any = { class = { "Spotify" }, },
+        properties = { screen = 1, tag = "9", switchtotag = true }
     },
 }
 -- }}}

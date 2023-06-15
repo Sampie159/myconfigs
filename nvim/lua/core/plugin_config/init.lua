@@ -1,4 +1,5 @@
 require('core.plugin_config.oil_config')
+require('core.plugin_config.haskell-tools_config')
 require('core.plugin_config.lazygit_config')
 require('core.plugin_config.autotag_config')
 require('core.plugin_config.harpoon_config')

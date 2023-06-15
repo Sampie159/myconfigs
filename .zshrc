@@ -154,8 +154,6 @@ alias mrl="make release"
 alias mt="make test"
 
 # Redshift aliases
-alias redon="redshift -P -O 3400"
-alias redoff="redshift -P -O 6500"
 alias redset="redshift -P -O"
 
 # PNPM aliases

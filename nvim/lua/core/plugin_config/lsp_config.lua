@@ -95,17 +95,6 @@ lsp.rust_analyzer.setup {
   },
 }
 
--- Haskell lsp config
-lsp.hls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  settings = {
-    haskell = {
-      formattingProvider = 'fourmolu',
-    },
-  },
-}
-
 -- C/C++ lsp config
 lsp.clangd.setup {
   capabilities = capabilities,

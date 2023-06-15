@@ -35,6 +35,12 @@ local plugins = {
   -- Lazygit
   'kdheepak/lazygit.nvim',
 
+  -- Haskell Tools
+  {
+    'mrcjkb/haskell-tools.nvim',
+    branch = '1.x.x',
+  },
+
   -- Debugging
   'mfussenegger/nvim-dap',
 
@@ -67,7 +73,7 @@ local plugins = {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
 
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim', opts = {}, tag = 'legacy' },
 
       'folke/neodev.nvim',
     },
@@ -82,7 +88,7 @@ local plugins = {
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
-    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip', 'hrsh7th/cmp-buffer' },
+    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
   },
 
   -- Vim/tmux
