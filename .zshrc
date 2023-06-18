@@ -73,6 +73,7 @@ ZSH_THEME="jonathan"
 plugins=(
   archlinux
   pass
+  rust
 )
 
 source $ZSH/oh-my-zsh.sh

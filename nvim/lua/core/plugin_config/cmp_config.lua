@@ -46,5 +46,6 @@ cmp.setup {
     { name = 'copilot' },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'buffer' },
   },
 }
