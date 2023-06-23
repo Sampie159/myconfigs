@@ -73,7 +73,6 @@ ZSH_THEME="jonathan"
 plugins=(
   archlinux
   pass
-  rust
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -107,7 +106,6 @@ export EDITOR="nvim"
 
 # General aliases
 alias sudo="doas"
-alias hypr="Hyprland"
 alias nv="nvim"
 alias po="poweroff"
 alias rb="reboot"
@@ -154,9 +152,6 @@ alias mr="make run"
 alias mrl="make release"
 alias mt="make test"
 
-# Redshift aliases
-alias redset="redshift -P -O"
-
 # PNPM aliases
 alias nin="pnpm install"
 alias ning="pnpm install -g"
@@ -193,6 +188,7 @@ alias min="meson init build"
 alias ms="meson setup build"
 alias msw="meson setup --wipe build"
 alias mcb="meson compile -C build"
+alias mswcb="meson setup --wipe build && meson compile -C build"
 
 # pnpm
 export PNPM_HOME="/home/sampie/.local/share/pnpm"
