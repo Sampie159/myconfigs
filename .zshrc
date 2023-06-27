@@ -158,6 +158,7 @@ alias ning="pnpm install -g"
 alias nrb="pnpm run build"
 alias nrbp="pnpm run build && pnpm run preview"
 alias nrd="pnpm run dev"
+alias pnpx="pnpm dlx"
 
 # Prisma aliases
 alias prin="pnpm install prisma @prisma/client"
@@ -175,9 +176,17 @@ alias t3new="pnpm create t3-app@latest"
 
 # Tmux aliases
 alias t="tmux"
+alias ta="tmux attach -t"
 alias tns="tmux new -s"
 alias tks="tmux kill-session -t"
 alias tls="tmux ls"
+
+function tmux_last_session(){
+
+    LAST_TMUX_SESSION=$(tmux list-sessions | awk -F ":" '{print$1}' | tail -n1);
+    tmux attach -t $LAST_TMUX_SESSION
+}
+bindkey -s '^s' 'tmux_last_session ^M'
 
 # Haskell aliases
 alias cblin="cabal install --ghc-options=-dynamic"

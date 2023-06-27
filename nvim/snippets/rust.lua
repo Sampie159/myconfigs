@@ -20,7 +20,26 @@ mod tests {{
 
     {}
 }}
-]], { i(0, '// Your tests here') }))
+]], { i(1, '// Your tests here') }))
 table.insert(autosnippets, cfgtests)
+
+local test = s('tst', fmt([[
+#[test]
+{}
+]], { i(1) }))
+table.insert(autosnippets, test)
+
+local derive = s('#der', fmt([[
+#[derive({})]
+{}
+]], { i(1), i(2) }))
+table.insert(autosnippets, derive)
+
+local should_panic = s('shp', fmt([[
+#[test]
+#[should_panic]
+{}
+]], { i(1) }))
+table.insert(autosnippets, should_panic)
 
 return snippets, autosnippets

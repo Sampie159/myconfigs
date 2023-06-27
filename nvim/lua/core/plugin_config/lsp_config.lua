@@ -111,6 +111,14 @@ lsp.clangd.setup {
     'compile_flags.txt', '.git'),
 }
 
+lsp.ocamllsp.setup {
+  cmd = { 'ocamllsp' },
+  filetypes = { 'ocaml', 'ocaml.interface', 'ocaml.ocamllex', 'ocaml.menhir' },
+  root_dir = lsp.util.root_pattern('dune-project', '.git', 'dune-workspace', '*.opam'),
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
 -- Setup neovim lua configuration
 require('neodev').setup()
 

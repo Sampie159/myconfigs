@@ -69,6 +69,10 @@ vim.keymap.set("i", "<M-f>", "<ESC><Space>Wi")
 vim.keymap.set("i", "<M-b>", "<ESC>Bi")
 vim.keymap.set("i", "<M-d>", "<ESC>cW")
 
+-- C-d C-u center screen
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
 -- Set tabspace and shiftwidth to 2
 vim.keymap.set("n", "<leader>2", "<cmd> set ts=2 sw=2<CR>")
 
