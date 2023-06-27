@@ -95,6 +95,14 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 export EDITOR="nvim"
 
+# Current working directory name
+dir_name() {
+  local result=${PWD##*/}
+  result=${result:-/}
+
+  echo $result
+}
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -181,10 +189,9 @@ alias tns="tmux new -s"
 alias tks="tmux kill-session -t"
 alias tls="tmux ls"
 
-function tmux_last_session(){
-
-    LAST_TMUX_SESSION=$(tmux list-sessions | awk -F ":" '{print$1}' | tail -n1);
-    tmux attach -t $LAST_TMUX_SESSION
+function tmux_last_session() {
+  LAST_TMUX_SESSION=$(tmux list-sessions | awk -F ":" '{print$1}' | tail -n1);
+  tmux attach -t $LAST_TMUX_SESSION
 }
 bindkey -s '^s' 'tmux_last_session ^M'
 
@@ -206,6 +213,13 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# Ocaml aliases
+alias ofmt="echo \"version = \`ocamlformat --version\`\" > .ocamlformat"
+alias dip="dune init project"
+alias db="dune build"
+alias dbr="dune build --release"
+alias de="dune exec \$(dir_name)"
 
 # opam configuration
 [[ ! -r /home/sampie/.opam/opam-init/init.zsh ]] || source /home/sampie/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
