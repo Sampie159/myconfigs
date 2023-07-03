@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/sampie/myconfigs'
+let g:netrw_dirhist_6='/home/sampie/myconfigs/.vim/after/plugin'
+let g:netrw_dirhist_5='/home/sampie/projects/cplayground/src'
+let g:netrw_dirhist_4='/home/sampie/projects/cplayground'
+let g:netrw_dirhist_3='/home/sampie/projects/cplayground/build'
+let g:netrw_dirhist_2='/home/sampie/projects/cplayground/build/src'
+let g:netrw_dirhist_1='/home/sampie/projects/cplayground/build'
+let g:netrw_dirhist_0='/home/sampie/projects/cplayground'
+let g:netrw_dirhist_9='/home/sampie/myconfigs/.vim/after/plugin'
+let g:netrw_dirhist_8='/home/sampie/myconfigs/.vim/after'

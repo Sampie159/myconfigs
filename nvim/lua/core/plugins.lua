@@ -30,7 +30,7 @@ local plugins = {
   'folke/todo-comments.nvim',
 
   -- Copilot-cmp
-  'zbirenbaum/copilot-cmp',
+  -- 'zbirenbaum/copilot-cmp',
 
   -- Lazygit
   'kdheepak/lazygit.nvim',
@@ -132,14 +132,8 @@ local plugins = {
     },
   },
 
-  {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
-    },
-  },
+  -- Add indentation guides even on blank lines
+  'lukas-reineke/indent-blankline.nvim',
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim',         opts = {} },

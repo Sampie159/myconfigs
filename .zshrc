@@ -93,7 +93,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-export EDITOR="nvim"
 
 # Current working directory name
 dir_name() {
@@ -215,11 +214,15 @@ esac
 # pnpm end
 
 # Ocaml aliases
-alias ofmt="echo \"version = \`ocamlformat --version\`\" > .ocamlformat"
+alias ofmt="echo \"profile = janestreet\nversion = \`ocamlformat --version\`\n\
+\nmargin = 90\ndoc-comments-padding = 100\nexp-grouping = preserve\"\
+> .ocamlformat"
 alias dip="dune init project"
 alias db="dune build"
 alias dbr="dune build --release"
 alias de="dune exec \$(dir_name)"
+alias dbe="dune build && dune exec \$(dir_name)"
+alias dbre="dune build --release && dune exec \$(dir_name)"
 
 # opam configuration
 [[ ! -r /home/sampie/.opam/opam-init/init.zsh ]] || source /home/sampie/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

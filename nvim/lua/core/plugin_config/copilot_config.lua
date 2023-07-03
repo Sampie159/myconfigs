@@ -16,10 +16,10 @@ require('copilot').setup({
   },
   suggestion = {
     enabled = true,
-    auto_trigger = false,
+    auto_trigger = true,
     debounce = 75,
     keymap = {
-      accept = "<Tab>",
+      accept = "<M-Tab>",
       accept_word = false,
       accept_line = false,
       next = "<M-]>",
@@ -42,4 +42,4 @@ require('copilot').setup({
   server_opts_overrides = {},
 })
 
-require('copilot_cmp').setup()
+-- require('copilot_cmp').setup()

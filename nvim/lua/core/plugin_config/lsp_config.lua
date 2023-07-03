@@ -119,6 +119,14 @@ lsp.ocamllsp.setup {
   capabilities = capabilities
 }
 
+lsp.racket_langserver.setup {
+  cmd = { 'racket', '--lib', 'racket-langserver', '--', '--stdio' },
+  filetypes = { 'racket' },
+  root_dir = lsp.util.root_pattern('info.rkt', 'main.rkt', 'test.rkt', 'langserver.rkt'),
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
 -- Setup neovim lua configuration
 require('neodev').setup()
 

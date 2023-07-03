@@ -18,4 +18,9 @@ local comment = s('//', fmt([[
 ]], { i(1) }))
 table.insert(autosnippets, comment)
 
+local doc = s('docc', fmt([[
+(** {} *)
+]], { i(1) }))
+table.insert(autosnippets, doc)
+
 return snippets, autosnippets
