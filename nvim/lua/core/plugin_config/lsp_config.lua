@@ -99,15 +99,16 @@ lsp.rust_analyzer.setup {
 lsp.clangd.setup {
   capabilities = capabilities,
   on_attach = on_attach,
-  cmd = { 'clangd', '--background-index' },
-  filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
+  cmd = { 'clangd', '--background-index', '--clang-tidy', '--completion-style=bundled', '--header-insertion=iwyu' },
+  filetypes = { 'c', 'cpp' },
   init_options = {
     clangdFileStatus = true,
     usePlaceholders = true,
     completeUnimported = true,
     semanticHighlighting = true,
   },
-  root_dir = lsp.util.root_pattern('.clangd', '.clang-tidy', '.clang=format', 'configure.ac', 'compile_commands.json',
+  root_dir = lsp.util.root_pattern('.clangd', '.clang-format', '.clang-tidy', '.clang=format', 'configure.ac',
+    'compile_commands.json',
     'compile_flags.txt', '.git'),
 }
 
