@@ -39,11 +39,11 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'rhysd/vim-lsp-ale'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'rafi/awesome-vim-colorschemes'
 
 call plug#end()
 
 " }}}
-
 
 " MAPPINGS --------------------------------------------------------------- {{{
 
@@ -69,7 +69,6 @@ inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
 " }}}
 
-
 " VIMSCRIPT -------------------------------------------------------------- {{{
 
 " This will enable code folding.
@@ -87,7 +86,6 @@ augroup END
 
 " }}}
 
-
 " STATUS LINE ------------------------------------------------------------ {{{
 
 set statusline=
@@ -101,3 +99,4 @@ set statusline+=\ row:\ %l\ col:\ %c\ percent:\ %p%%
 set laststatus=2
 
 " }}}
+
