@@ -52,6 +52,7 @@ let mapleader = " "
 nnoremap <leader>fs :write<CR>
 nnoremap ;q :quit!<CR>
 nnoremap ;f :e 
+nnoremap ;d :!mkdir -p 
 
 nnoremap n nzz
 nnoremap N Nzz
@@ -66,6 +67,15 @@ nnoremap <c-l> <c-w>l
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+
+nnoremap <leader>bk :bdelete<CR>
+
+nnoremap o o<Esc>
+nnoremap O O<Esc>
+
+nnoremap ;s :%s/\<<C-r><C-w>\>/<C-w>/gI<Left><Left><Left>
+
+nnoremap <leader>x :!chmod +x %<CR>
 
 " }}}
 
