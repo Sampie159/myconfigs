@@ -45,7 +45,7 @@ call plug#end()
 
 " }}}
 
-" MAPPINGS --------------------------------------------------------------- {{{
+"MAPPINGS --------------------------------------------------------------- {{{
 
 let mapleader = " "
 
@@ -76,6 +76,12 @@ nnoremap O O<Esc>
 nnoremap ;s :%s/\<<C-r><C-w>\>/<C-w>/gI<Left><Left><Left>
 
 nnoremap <leader>x :!chmod +x %<CR>
+
+nnoremap ;g :G<CR>
+nnoremap <leader>fga :G add .<CR>
+nnoremap <leader>fc :G commit<CR>
+nnoremap <leader>fpl :G pull<CR>
+nnoremap <leader>fps :G push<CR>
 
 " }}}
 
