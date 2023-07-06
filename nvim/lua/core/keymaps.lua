@@ -80,5 +80,5 @@ vim.keymap.set("n", "<leader>2", "<cmd> set ts=2 sw=2<CR>")
 vim.keymap.set("n", "<leader>4", "<cmd> set ts=4 sw=4<CR>")
 
 -- Set o and O to escape after input
-vim.keymap.set("n", "o", "o<ESC>")
-vim.keymap.set("n", "O", "O<ESC>")
+-- vim.keymap.set("n", "o", "o<ESC>")
+-- vim.keymap.set("n", "O", "O<ESC>")

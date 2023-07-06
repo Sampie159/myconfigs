@@ -23,6 +23,7 @@ set wildmenu
 set wildmode=list:longest
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 set colorcolumn=90
+set termguicolors
 
 " PLUGINS ---------------------------------------------------------------- {{{
 
@@ -70,8 +71,8 @@ inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
 nnoremap <leader>bk :bdelete<CR>
 
-nnoremap o o<Esc>
-nnoremap O O<Esc>
+" nnoremap o o<Esc>
+" nnoremap O O<Esc>
 
 nnoremap ;s :%s/\<<C-r><C-w>\>/<C-w>/gI<Left><Left><Left>
 
