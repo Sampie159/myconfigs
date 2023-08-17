@@ -205,6 +205,12 @@ alias msw="meson setup --wipe build"
 alias mcb="meson compile -C build"
 alias mswcb="meson setup --wipe build && meson compile -C build"
 
+# CMake aliases
+alias cmin="cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug"
+alias cms="cmake --build build"
+alias cmi="doas cmake --install build"
+alias cminr="cmake -S . -B build -DCMAKE_BUILD_TYPE=Release"
+
 # pnpm
 export PNPM_HOME="/home/sampie/.local/share/pnpm"
 case ":$PATH:" in
@@ -224,5 +230,21 @@ alias de="dune exec \$(dir_name)"
 alias dbe="dune build && dune exec \$(dir_name)"
 alias dbre="dune build --release && dune exec \$(dir_name)"
 
+# Zig aliases
+alias zb="zig build -Doptimize=Debug"
+alias zr="zig build run -Doptimize=Debug"
+alias zt="zig build test -Doptimize=Debug"
+alias zbr="zig build -Doptimize=ReleaseFast"
+alias zrr="zig build -Doptimize=ReleaseFast run"
+alias ztr="zig build -Doptimize=ReleaseFast test"
+alias zig="zig"
+
+# Pass aliases
+alias pg="pass generate"
+alias psc="pass show -c"
+
 # opam configuration
 [[ ! -r /home/sampie/.opam/opam-init/init.zsh ]] || source /home/sampie/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+# Turso
+export PATH="/home/sampie/.turso:$PATH"

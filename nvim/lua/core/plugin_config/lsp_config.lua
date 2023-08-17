@@ -1,6 +1,6 @@
 local lsp = require('lspconfig')
 
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
   local nmap = function(keys, func, desc)
     if desc then
       desc = 'LSP: ' .. desc
@@ -34,6 +34,10 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
+
+  if client.resolved_capabilities.document_formatting then
+    vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
+  end
 end
 
 local servers = {
@@ -65,6 +69,14 @@ lsp.gopls.setup {
       staticcheck = true,
     },
   },
+}
+
+lsp.asm_lsp.setup {
+  cmd = { 'asm-lsp' },
+  filetypes = { 'asm', 's', 'vmasm' },
+  root_dir = lsp.util.root_pattern('.git'),
+  on_attach = on_attach,
+  capabilities = capabilities
 }
 
 -- Rust lsp config
@@ -128,6 +140,27 @@ lsp.racket_langserver.setup {
   capabilities = capabilities
 }
 
+lsp.zls.setup {
+  cmd = { 'zls' },
+  filetypes = { 'zig' },
+  root_dir = lsp.util.root_pattern('.git', 'build.zig'),
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+lsp.hls.setup {
+  cmd = { 'haskell-language-server-wrapper', '--lsp' },
+  filetypes = { 'haskell', 'lhaskell', },
+  root_dir = lsp.util.root_pattern('*.cabal', 'stack.yaml', 'cabal.project', 'package.yaml', 'hie.yaml', '.git'),
+  settings = {
+    haskell = {
+      formattingProvider = "stylish-haskell",
+    }
+  },
+  single_file_support = true,
+  on_attach = on_attach,
+}
+
 -- Setup neovim lua configuration
 require('neodev').setup()
 
@@ -154,5 +187,3 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
-
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]

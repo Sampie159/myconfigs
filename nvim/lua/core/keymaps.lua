@@ -79,6 +79,11 @@ vim.keymap.set("n", "<leader>2", "<cmd> set ts=2 sw=2<CR>")
 -- Set tabspace and shiftwidth to 4
 vim.keymap.set("n", "<leader>4", "<cmd> set ts=4 sw=4<CR>")
 
--- Set o and O to escape after input
--- vim.keymap.set("n", "o", "o<ESC>")
--- vim.keymap.set("n", "O", "O<ESC>")
+-- Sort selected lines
+vim.keymap.set("v", "<leader>s", ":sort<CR>")
+
+-- Reverse sort selected lines
+vim.keymap.set("v", "<leader>S", ":sort!<CR>")
+
+-- Haskell Format
+vim.keymap.set("n", "<leader>hf", "<cmd>%!stylish-haskell<CR>")

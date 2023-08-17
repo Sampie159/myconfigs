@@ -7,3 +7,5 @@
 [user]
 	name = Sampie159
 	email = 38163547+Sampie159@users.noreply.github.com
+[init]
+	defaultBranch = master

@@ -45,7 +45,7 @@ local plugins = {
   'mfussenegger/nvim-dap',
 
   -- Null Ls
-  'jose-elias-alvarez/null-ls.nvim',
+  -- 'jose-elias-alvarez/null-ls.nvim',
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
@@ -119,13 +119,16 @@ local plugins = {
     "catppuccin/nvim", name = "catppuccin"
   },
 
+  -- Oxocarbon
+  "nyoom-engineering/oxocarbon.nvim",
+
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     opts = {
       options = {
-        icons_enabled = false,
-        theme = 'papercolor_light',
+        icons_enabled = true,
+        theme = 'ayu_dark',
         component_separators = '|',
         section_separators = '',
       },
@@ -140,6 +143,7 @@ local plugins = {
 
   -- Fuzzy Finder
   { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
+  'nvim-telescope/telescope-ui-select.nvim',
 
   {
     'nvim-telescope/telescope-fzf-native.nvim',
