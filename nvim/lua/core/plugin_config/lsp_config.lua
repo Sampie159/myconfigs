@@ -35,9 +35,7 @@ local on_attach = function(client, bufnr)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
 
-  if client.resolved_capabilities.document_formatting then
-    vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
-  end
+  vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
 end
 
 local servers = {
@@ -154,7 +152,7 @@ lsp.hls.setup {
   root_dir = lsp.util.root_pattern('*.cabal', 'stack.yaml', 'cabal.project', 'package.yaml', 'hie.yaml', '.git'),
   settings = {
     haskell = {
-      formattingProvider = "stylish-haskell",
+      formattingProvider = "fourmolu",
     }
   },
   single_file_support = true,

@@ -71,8 +71,8 @@ ZSH_THEME="jonathan"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  archlinux
-  pass
+  # archlinux
+  # pass
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -112,7 +112,7 @@ dir_name() {
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # General aliases
-alias sudo="doas"
+# alias sudo="doas"
 alias nv="nvim"
 alias po="poweroff"
 alias rb="reboot"
@@ -185,7 +185,7 @@ alias t3new="pnpm create t3-app@latest"
 alias t="tmux"
 alias ta="tmux attach -t"
 alias tns="tmux new -s"
-alias tks="tmux kill-session -t"
+alias tks="tmux kill-session"
 alias tls="tmux ls"
 
 function tmux_last_session() {
@@ -208,7 +208,7 @@ alias mswcb="meson setup --wipe build && meson compile -C build"
 # CMake aliases
 alias cmin="cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug"
 alias cms="cmake --build build"
-alias cmi="doas cmake --install build"
+alias cmi="sudo cmake --install build --prefix /usr/local"
 alias cminr="cmake -S . -B build -DCMAKE_BUILD_TYPE=Release"
 
 # pnpm
@@ -248,3 +248,5 @@ alias psc="pass show -c"
 
 # Turso
 export PATH="/home/sampie/.turso:$PATH"
+
+[ -f "/home/sampie/.ghcup/env" ] && source "/home/sampie/.ghcup/env" # ghcup-env

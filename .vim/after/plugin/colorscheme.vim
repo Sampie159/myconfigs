@@ -1,1 +1,1 @@
-colorscheme archery
+colorscheme gotham
