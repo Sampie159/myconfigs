@@ -33,6 +33,7 @@ set guicursor+=n-v-c:blinkon0
 set guicursor+=i:blinkwait10
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
+let g:loaded_matchparen = 1
 
 " PLUGINS ---------------------------------------------------------------- {{{
 
