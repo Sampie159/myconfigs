@@ -17,7 +17,7 @@ local plugins = {
   'tpope/vim-rhubarb',
 
   -- Copilot
-  'github/copilot.vim',
+  -- 'github/copilot.vim',
 
   -- Copilot.lua
   {
@@ -28,6 +28,9 @@ local plugins = {
 
   -- Todo Comments
   'folke/todo-comments.nvim',
+
+  -- Ouroboros (C/C++ Source/Header Switching)
+  'jakemason/ouroboros.nvim',
 
   -- Copilot-cmp
   -- 'zbirenbaum/copilot-cmp',
@@ -121,6 +124,9 @@ local plugins = {
 
   -- Oxocarbon
   "nyoom-engineering/oxocarbon.nvim",
+
+  -- Gotham
+  "whatyouhide/vim-gotham",
 
   {
     -- Set lualine as statusline

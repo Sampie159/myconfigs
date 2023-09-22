@@ -73,6 +73,8 @@ ZSH_THEME="jonathan"
 plugins=(
   # archlinux
   # pass
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -154,7 +156,7 @@ alias cwt="cargo watch -x test"
 alias mdb="mariadb -u root -p"
 
 # Makefile aliases
-alias mc="make clean"
+# alias mc="make clean"
 alias mr="make run"
 alias mrl="make release"
 alias mt="make test"

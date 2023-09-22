@@ -3,7 +3,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Fat Cursor
-vim.opt.guicursor = ""
+-- vim.opt.guicursor = ""
 
 -- Search highlight
 vim.o.hlsearch = false

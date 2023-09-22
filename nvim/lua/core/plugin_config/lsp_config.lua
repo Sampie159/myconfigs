@@ -105,6 +105,15 @@ lsp.rust_analyzer.setup {
   },
 }
 
+-- Swi Prolog
+lsp.prolog_ls.setup {
+  cmd = { 'swipl', '--quiet', '--traditional', '--tty=raw', '--no-signals', '--no-packs', '--no-autoload' },
+  filetypes = { 'prolog' },
+  root_dir = lsp.util.root_pattern('.git'),
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
 -- C/C++ lsp config
 lsp.clangd.setup {
   capabilities = capabilities,

@@ -17,3 +17,4 @@ require('core.plugin_config.indent-blankline_config')
 
 -- require('core.plugin_config.catppuccin_config')
 require('core.plugin_config.oxocarbon_config')
+-- require('core.plugin_config.gotham_config')

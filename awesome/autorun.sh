@@ -10,5 +10,6 @@ run() {
 # run "picom" -b --config ~/.config/picom.conf
 run "nitrogen" --restore -b
 run "flameshot" &
+run "conky" &
 
 # run ""
