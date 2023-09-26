@@ -40,9 +40,6 @@ let g:loaded_matchparen = 1
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-vinegar'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-commentary'
 Plug 'rafi/awesome-vim-colorschemes'
 
