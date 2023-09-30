@@ -11,7 +11,7 @@ require('core.plugin_config.treesitter_config')
 require('core.plugin_config.lsp_config')
 require('core.plugin_config.luasnip_config')
 require('core.plugin_config.todo-comments_config')
-require('core.plugin_config.indent-blankline_config')
+-- require('core.plugin_config.indent-blankline_config')
 
 -- Themes
 
