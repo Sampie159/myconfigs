@@ -252,6 +252,9 @@ alias zig="zig"
 alias pg="pass generate"
 alias psc="pass show -c"
 
+# Hyprland
+alias hypr="Hyprland"
+
 # opam configuration
 [[ ! -r /home/sampie/.opam/opam-init/init.zsh ]] || source /home/sampie/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
