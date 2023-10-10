@@ -50,7 +50,7 @@ vim.o.timeoutlen = 300
 vim.o.completeopt = 'menuone,noselect'
 
 -- Set colorscheme
-vim.o.termguicolors = true
+-- vim.o.termguicolors = true
 
 -- Set scrolloff
 vim.o.scrolloff = 8

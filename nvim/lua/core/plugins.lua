@@ -63,10 +63,10 @@ local plugins = {
   'stevearc/oil.nvim',
 
   -- Harpoon
-  'theprimeagen/harpoon',
+  'ThePrimeagen/harpoon',
 
   -- vim-be-good
-  'theprimeagen/vim-be-good',
+  'ThePrimeagen/vim-be-good',
 
   {
     -- LSP Configuration & Plugins
@@ -175,6 +175,9 @@ local plugins = {
 
   -- Web devicons
   'nvim-tree/nvim-web-devicons',
+
+  -- Pywal
+  'dylanaraps/wal.vim',
 }
 
 require('lazy').setup(plugins, {})

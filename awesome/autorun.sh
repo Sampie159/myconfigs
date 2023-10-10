@@ -7,9 +7,9 @@ run() {
     fi
 }
 
-# run "picom" -b --config ~/.config/picom.conf
 run "nitrogen" --restore -b
 run "flameshot" &
+run "discord"
 run "conky" &
 
 # run ""

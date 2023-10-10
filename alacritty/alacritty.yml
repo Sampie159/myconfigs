@@ -13,3 +13,11 @@ font:
   bold:
     family: FiraCode Nerd Font
     style: Bold
+
+
+window:
+  opacity:
+    0.90
+
+colors:
+  transparent_background_colors: true

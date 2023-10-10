@@ -15,7 +15,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="jonathan"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -110,6 +110,10 @@ dir_name() {
 
   echo $result
 }
+
+# Pywal
+cat ~/.cache/wal/sequences
+source ~/.cache/wal/colors-tty.sh
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -262,6 +266,3 @@ alias hypr="Hyprland"
 export PATH="/home/sampie/.turso:$PATH"
 
 [ -f "/home/sampie/.ghcup/env" ] && source "/home/sampie/.ghcup/env" # ghcup-env
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
