@@ -1,32 +1,32 @@
 #!/usr/bin/env bash
 
-programs=(tmux conky screenkey flameshot redshift alacritty awesome git nitrogen \
-    grim slurp wl-clipboard xdg-desktop-portal-hyperland qt5-wayland qt5ct \
-    libva)
-
-for program in "${programs[@]}"; do
-    if ! command -v $program &> /dev/null; then
-        echo "Installing $program"
-        sudo pacman -S $program --noconfirm
-    fi
-done
+# programs=(tmux conky screenkey flameshot redshift alacritty awesome git nitrogen \
+#     grim slurp wl-clipboard xdg-desktop-portal-hyperland qt5-wayland qt5ct \
+#     libva)
+#
+# for program in "${programs[@]}"; do
+#     if ! command -v $program &> /dev/null; then
+#         echo "Installing $program"
+#         sudo pacman -S $program --noconfirm
+#     fi
+# done
 
 if [ ! -d ~/.config ]; then
     mkdir ~/.config
 fi
 
-git clone https://aur.archlinux.org/yay-git.git && cd yay-git
-makepkg -si
-cd .. && rm -rf yay-git
-
-programs_aur=(hyprland-nvidia hyprpaper libva-nvidia-driver-git)
-
-for program in "${programs_aur[@]}"; do
-    if ! command -v $program &> /dev/null; then
-        echo "Installing $program"
-        yay -S $program --noconfirm
-    fi
-done
+# git clone https://aur.archlinux.org/yay-git.git && cd yay-git
+# makepkg -si
+# cd .. && rm -rf yay-git
+#
+# programs_aur=(hyprland-nvidia hyprpaper libva-nvidia-driver-git)
+#
+# for program in "${programs_aur[@]}"; do
+#     if ! command -v $program &> /dev/null; then
+#         echo "Installing $program"
+#         yay -S $program --noconfirm
+#     fi
+# done
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -43,4 +43,4 @@ ln -sf ~/myconfigs/alacritty ~/.config/
 ln -sf ~/myconfigs/awesome ~/.config/
 ln -sf ~/myconfigs/hypr ~/.config/
 ln -sf ~/myconfigs/waybar ~/.config/
-echo "options nvidia-drm modeset=1" > /etc/modprobe.d/nvidia.conf
+# echo "options nvidia-drm modeset=1" > /etc/modprobe.d/nvidia.conf

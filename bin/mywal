@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+while getopts Ri: flag
+do
+  case "${flag}" in
+    R) wal -R;
+      ~/.config/polybar/shapes/scripts/pywal.sh -R;
+       ~/.config/polybar/launch.sh --shapes & ;;
+    i) wal -i "${OPTARG}";
+        ~/.config/polybar/shapes/scripts/pywal.sh -R;
+        wal-discord; beautifuldiscord --css ~/.cache/wal-discord/style.css;
+        pywalfox update ;;
+  esac
+done

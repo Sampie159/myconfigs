@@ -28,8 +28,9 @@ gaps inner 5
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-exec ~/.config/polybar/launch.sh --shapes &
+exec mywal -R
 exec --no-startup-id picom --config ~/.config/picom/picom.conf &
+exec --no-startup-id flameshot &
 exec --no-startup-id discord
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -146,6 +147,8 @@ bindsym $mod+Shift+Return exec --no-startup-id rofi -show drun
 
 bindsym $mod+minus exec --no-startup-id redshift -P -O 3400
 bindsym $mod+Shift+minus exec --no-startup-id redshift -x
+
+bindsym Print exec --no-startup-id flameshot gui
 
 # focus the child container
 #bindsym $mod+d focus child
