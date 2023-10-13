@@ -531,12 +531,6 @@ awful.rules.rules = {
         properties = { floating = true }
     },
 
-    -- Set to always map on the tag named "1" on screen 1.
-    {
-        rule_any = { class = { "Alacritty" }, },
-        properties = { screen = 1, tag = "1", switchtotag = true }
-    },
-
     -- Set to always map on the tag named "2" on screen 1.
     {
         rule_any = { class = { "firefox" }, },

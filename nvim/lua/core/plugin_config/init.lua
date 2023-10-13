@@ -16,6 +16,6 @@ require('core.plugin_config.todo-comments_config')
 -- Themes
 
 -- require('core.plugin_config.catppuccin_config')
--- require('core.plugin_config.oxocarbon_config')
+require('core.plugin_config.oxocarbon_config')
 -- require('core.plugin_config.gotham_config')
-require('core.plugin_config.wal_config')
+-- require('core.plugin_config.wal_config')

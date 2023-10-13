@@ -7,9 +7,11 @@ run() {
     fi
 }
 
+picom --config ~/.config/picom/picom.conf &
+mywal -R &
 run "nitrogen" --restore -b
-run "flameshot" &
-run "discord"
-run "conky" &
+run "flameshot"
+run "conky"
+discord
 
 # run ""

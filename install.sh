@@ -43,4 +43,4 @@ ln -sf ~/myconfigs/alacritty ~/.config/
 ln -sf ~/myconfigs/awesome ~/.config/
 ln -sf ~/myconfigs/hypr ~/.config/
 ln -sf ~/myconfigs/waybar ~/.config/
-# echo "options nvidia-drm modeset=1" > /etc/modprobe.d/nvidia.conf
+echo "options nvidia-drm modeset=1" >> /etc/modprobe.d/nvidia.conf
