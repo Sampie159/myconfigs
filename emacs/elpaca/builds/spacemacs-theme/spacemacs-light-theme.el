@@ -1,0 +1,1 @@
+/home/sampie/.config/emacs/elpaca/repos/spacemacs-theme/spacemacs-light-theme.el

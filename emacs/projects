@@ -1,0 +1,7 @@
+;;; -*- lisp-data -*-
+(("/home/sampie/playgrounds/rustplayground/")
+ ("/home/sampie/playgrounds/c++playground/")
+ ("/home/sampie/playgrounds/racketplayground/")
+ ("/home/sampie/playgrounds/goplayground/")
+ ("/home/sampie/playgrounds/zigplayground/")
+ ("/home/sampie/myconfigs/"))

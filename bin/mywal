@@ -1,13 +1,50 @@
 #!/usr/bin/env bash
 
-while getopts Ri: flag
+restart_waybar () {
+  killall waybar
+  waybar &
+}
+
+set_wallpaper () {
+  swww img "${1}" \
+    --transition-fps=60 \
+    --transition-step=1 \
+    --transition-type=random
+}
+
+while getopts Rri: flag
 do
   case "${flag}" in
-    R) wal -R ;;
-      # ~/.config/polybar/shapes/scripts/pywal.sh -R;
-       # ~/.config/polybar/launch.sh --shapes & ;;
-    i) wal -i "${OPTARG}";
-        # ~/.config/polybar/shapes/scripts/pywal.sh -R;
-        pywalfox update ;;
+    R) wal -R
+       ;;
+    i) wal -i "${OPTARG}"
+       cp ~/.cache/wal/colors-waybar.css ~/.config/waybar/
+       if pgrep -x waybar > /dev/null; then
+         restart_waybar
+       fi
+
+       set_wallpaper "${OPTARG}"
+
+       if pgrep -x awesome > /dev/null; then
+         awesome-client 'awesome.restart()' > /dev/null 2>&1
+       fi
+
+       pywalfox update
+       ;;
+    r) wal -q -i ~/Wallpapers/
+       source ~/.cache/wal/colors.sh
+       cp ~/.cache/wal/colors-waybar.css ~/.config/waybar/
+       if pgrep -x waybar > /dev/null; then
+         restart_waybar
+       fi
+
+       set_wallpaper $wallpaper
+
+       if pgrep -x awesome > /dev/null; then
+         awesome-client 'awesome.restart()' > /dev/null 2>&1
+       fi
+
+       pywalfox update
+       ;;
   esac
 done

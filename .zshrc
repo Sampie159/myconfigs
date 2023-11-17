@@ -220,8 +220,8 @@ alias mswcb="meson setup --wipe build && meson compile -C build"
 
 # CMake aliases
 alias cmin="cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug"
-alias cms="cmake --build build"
-alias cmi="sudo cmake --install build --prefix /usr/local"
+alias cmb="cmake --build build"
+alias cmi="sudo cmake --install . --prefix /usr/local"
 alias cminr="cmake -S . -B build -DCMAKE_BUILD_TYPE=Release"
 
 # pnpm

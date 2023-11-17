@@ -1,7 +1,3 @@
-import:
-  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
-  # - ~/.config/alacritty/themes/themes/gotham.yaml
-
 env:
   TERM: xterm-256color
 

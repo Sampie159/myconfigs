@@ -44,4 +44,11 @@ local headinit = s('headinit', fmt([[
 ]], { filename(), filename(), i(0, '// Your code here'), filename() }))
 table.insert(autosnippets, headinit)
 
+local comment_block = s('/*', fmt([[
+/*
+ * {}
+ */
+]], { i(1, 'Your comment here') }))
+table.insert(autosnippets, comment_block)
+
 return snippets, autosnippets

@@ -178,6 +178,9 @@ local plugins = {
 
   -- Pywal
   'dylanaraps/wal.vim',
+
+  -- KMonad
+  'kmonad/kmonad-vim',
 }
 
 require('lazy').setup(plugins, {})

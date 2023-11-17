@@ -1,0 +1,1 @@
+/home/sampie/.config/emacs/elpaca/repos/ewal/spacemacs-themes/ewal-spacemacs-modern-theme.el

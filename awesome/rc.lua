@@ -49,7 +49,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
@@ -203,7 +203,10 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({
+        position = "top",
+        screen = s,
+    })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -248,12 +251,12 @@ globalkeys = gears.table.join(
         { description = "view next", group = "tag" }),
     awful.key({ modkey, }, "Escape", awful.tag.history.restore,
         { description = "go back", group = "tag" }),
-    awful.key({ modkey, "Shift" }, "Return", function() awful.spawn("dmenu_run") end,
-        { description = "run dmenu", group = "applications" }),
+    awful.key({ modkey, "Shift" }, "Return", function() awful.spawn("rofi -show drun") end,
+        { description = "run prompt", group = "launcher" }),
     awful.key({}, "Print", function() awful.spawn("flameshot gui") end,
         { description = "take screenshot", group = "applications" }),
-    awful.key({ modkey }, "p", function() awful.spawn("emoji-picker") end,
-        { description = "open emoji picker", group = "applications" }),
+    awful.key({ modkey }, "p", function() awful.spawn("boomer") end,
+        { description = "run boomer", group = "applications" }),
 
     -- Alacritty specific
     awful.key({ modkey, "Shift" }, "n", function() awful.spawn("alacritty -e nvim") end,
@@ -486,7 +489,7 @@ awful.rules.rules = {
     {
         rule = {},
         properties = {
-            border_width = beautiful.border_width,
+            border_width = 3,
             border_color = beautiful.border_normal,
             focus = awful.client.focus.filter,
             raise = true,

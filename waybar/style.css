@@ -1,20 +1,22 @@
+@import 'colors-waybar.css';
+
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: "FiraCode Nerd Font";
     font-size: 13px;
     border: none;
-    border-radius: 0;
+    border-radius: 10;
     min-height: 0;
 }
 
 window#waybar {
-    color: white;
-    background: transparent;
+    background-color: transparent;
 }
 
 #window {
     font-weight: bold;
     font-family: "FiraCode Nerd Font";
+    background: linear-gradient(90deg, @color12 0%, @color13 100%);
 }
 
 button {
@@ -34,7 +36,7 @@ button:hover {
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: darkslategrey;
+    color: @color8;
 }
 
 #workspaces button:hover {
@@ -42,16 +44,13 @@ button:hover {
 }
 
 #workspaces button.focused {
-    background-color: #64727D;
     box-shadow: inset 0 -3px #ffffff;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
 }
 
 #mode {
-    background-color: #64727D;
     border-bottom: 3px solid #ffffff;
 }
 
@@ -59,7 +58,6 @@ button:hover {
 #cpu,
 #memory,
 #disk,
-#temperature,
 #backlight,
 #network,
 #pulseaudio,
@@ -72,25 +70,26 @@ button:hover {
 #workspaces {
     padding: 0 3px;
     margin: 0 4px;
-    color: darkslategrey;
+    color: @color8;
 }
 
 #language {
-    color: darkslategrey;
+    color: @color8;
     padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state {
-    color: darkslategrey;
-    padding: 0 0px;
     margin: 0 5px;
     min-width: 16px;
 }
 
 #keyboard-state > label {
     padding: 0 5px;
+}
+
+.modules-left {
+    background: linear-gradient(90deg, @color11 0%, @color12 100%);
+}
+
+.modules-right {
+    background: linear-gradient(90deg, @color13 50%, @color13 100%);
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -105,13 +104,11 @@ button:hover {
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
         color: #000000;
     }
 }
 
 label:focus {
-    background-color: #000000;
 }
 
 #tray > .passive {

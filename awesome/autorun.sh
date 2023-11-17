@@ -9,9 +9,9 @@ run() {
 
 picom --config ~/.config/picom/picom.conf &
 mywal -R &
-run "nitrogen" --restore -b
+kmonad ~/myconfigs/kmonad/a.kbd &
 run "flameshot"
 run "conky"
-discord
+run "discord"
 
 # run ""

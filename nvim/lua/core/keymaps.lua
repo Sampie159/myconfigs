@@ -51,12 +51,6 @@ vim.keymap.set('v', '<A-k>', ':MoveBlock(-1)<CR>', moveopts)
 vim.keymap.set('v', '<A-h>', ':MoveHBlock(-1)<CR>', moveopts)
 vim.keymap.set('v', '<A-l>', ':MoveHBlock(1)<CR>', moveopts)
 
--- Vim/tmux
-vim.keymap.set("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>")
-vim.keymap.set("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>")
-vim.keymap.set("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>")
-vim.keymap.set("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>")
-
 -- Copilot
 vim.keymap.set("n", "<leader>cp", "<cmd> Copilot enable<CR>")
 
