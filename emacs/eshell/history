@@ -49,3 +49,14 @@ ls
 cd goplayground/
 ls -a
 go install golang.org/x/tools/gopls@latest
+ls
+cd
+cd playgrounds/
+ls
+mkdir zigplayground
+cd zigplayground/
+ls
+zig init-exe
+ls
+git init
+exit

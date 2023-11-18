@@ -1,1 +1,0 @@
-/home/sampie/.config/emacs/elpaca/repos/ob-rust/test-ob-rust.el

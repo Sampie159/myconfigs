@@ -1,1 +1,0 @@
-/home/sampie/.config/emacs/elpaca/repos/lsp-mode/clients/lsp-ttcn3.el

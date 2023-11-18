@@ -1,4 +1,0 @@
-/home/sampie/.config/emacs/elpaca/builds/vterm/build/CMakeFiles/vterm-module.dir
-/home/sampie/.config/emacs/elpaca/builds/vterm/build/CMakeFiles/run.dir
-/home/sampie/.config/emacs/elpaca/builds/vterm/build/CMakeFiles/edit_cache.dir
-/home/sampie/.config/emacs/elpaca/builds/vterm/build/CMakeFiles/rebuild_cache.dir

@@ -1,1 +1,0 @@
-/home/sampie/.config/emacs/elpaca/repos/magit/docs/AUTHORS.md

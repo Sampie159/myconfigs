@@ -3,3 +3,4 @@ nvim/lazy-lock.json
 tmux/plugins
 .vim/.netrwhist
 .vim/plugged/*
+waybar/colors-waybar.css

@@ -1,1 +1,0 @@
-/home/sampie/.config/emacs/elpaca/repos/ewal/ewal.el

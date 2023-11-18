@@ -183,11 +183,7 @@
 	      ewal-dark-palette-p t
 	      ewal-use-built-in-palette "sexy-material"))
 
-(use-package ewal-spacemacs-themes
-  :init (progn
-          (setq spacemacs-theme-underline-parens t)
-          (show-paren-mode +1)
-          (global-hl-line-mode))
+(use-package ewal-doom-themes
   :config (progn
-            (load-theme 'ewal-spacemacs-modern t)
-            (enable-theme 'ewal-spacemacs-modern)))
+	    (load-theme 'ewal-doom-one t)
+	    (enable-theme 'ewal-doom-one)))

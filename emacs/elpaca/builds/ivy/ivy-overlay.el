@@ -1,1 +1,0 @@
-/home/sampie/.config/emacs/elpaca/repos/swiper/ivy-overlay.el
