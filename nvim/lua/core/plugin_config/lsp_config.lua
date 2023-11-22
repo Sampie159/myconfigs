@@ -103,6 +103,14 @@ lsp.rust_analyzer.setup {
   },
 }
 
+lsp.fortls.setup {
+  cmd = { "fortls", "--notify_init", "--hover_signature", "--hover_language=fortran", "--use_signature_help" },
+  filetypes = { "fortran", "f77", "f90", "f95" },
+  root_dir = lsp.util.root_pattern(".git"),
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
 -- Swi Prolog
 lsp.prolog_ls.setup {
   cmd = { 'swipl', '--quiet', '--traditional', '--tty=raw', '--no-signals', '--no-packs', '--no-autoload' },

@@ -12,7 +12,6 @@ programs=(tmux
     alacritty
     awesome
     git
-    python-pywal
     linux-headers
     picom
     firefox
@@ -48,15 +47,53 @@ if [ ! -d ~/.local/bin ]; then
 fi
 
 git clone https://aur.archlinux.org/yay-git.git && cd yay-git
-makepkg -si
+makepkg -si --noconfirm
 cd .. && rm -rf yay-git
 
-programs_aur=(python-pywalfox)
+programs_aur=(
+    python-pywalfox
+    pywal-16-colors
+    hyprland-nvidia-git
+    swww
+    xdg-desktop-portal-hyprland
+    waybar wl-clipboard
+    kmonad-bin
+    rar
+)
 
 for program in "${programs_aur[@]}"; do
     if ! command -v $program &> /dev/null; then
         echo "Installing $program"
         yay -S $program --noconfirm
+    fi
+done
+
+configs=(
+    tmux
+    conky
+    alacritty
+    awesome
+    hypr
+    waybar
+    nvim
+    picom
+    rofi
+)
+
+for config in "${configs[@]}"; do
+    if [ ! -d ~/.config/"${config}" ]; then
+        ln -sf ~/myconfigs/"${config}" ~/.config/
+    fi
+done
+
+home_configs=(
+    .gitconfig
+    Wallpapers
+)
+
+for home_config in "${home_configs[@]}"; do
+    if [ ! -d ~/"${home_config}" ]; then
+        ln -sf ~/myconfigs/"${home_config}" ~/
     fi
 done
 
@@ -67,18 +104,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 ln -sf ~/myconfigs/.zshrc ~/.zshrc
 ln -sf ~/myconfigs/.p10k.zsh ~/.p10k.zsh
 ln -sf ~/myconfigs/.zshenv ~/.zshenv
-ln -sf ~/myconfigs/tmux ~/.config/
+ln -sf ~/myconfigs/discord-flags.conf ~/.config/discord-flags.conf
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-ln -sf ~/myconfigs/conky ~/.config/
-ln -sf ~/myconfigs/.gitconfig ~/
-ln -sf ~/myconfigs/alacritty ~/.config/
-ln -sf ~/myconfigs/awesome ~/.config/
-ln -sf ~/myconfigs/hypr ~/.config/
-ln -sf ~/myconfigs/waybar ~/.config/
-ln -sf ~/myconfigs/nvim ~/.config/
-ln -sf ~/myconfigs/picom ~/.config/
 ln -sf ~/myconfigs/bin/* ~/.local/bin/
-ln -sf ~/myconfigs/rofi ~/.config/
 ln -sf ~/myconfigs/templates/* ~/.config/wal/templates
-ln -sf ~/myconfigs/Wallpapers ~/
-sudo echo "options nvidia-drm modeset=1" >> /etc/modprobe.d/nvidia.conf

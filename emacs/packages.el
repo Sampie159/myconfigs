@@ -116,6 +116,8 @@
   :hook
   ((c-mode . lsp)
    (c++-mode . lsp)
+   (fortran-mode . lsp)
+   (f90-mode . lsp)
    (lsp-mode . lsp-enable-which-key-integration))
   :config (setq lsp-enable-on-type-formatting nil)
   :commands (lsp))

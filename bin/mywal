@@ -12,11 +12,28 @@ set_wallpaper () {
     --transition-type=random
 }
 
-while getopts Rri: flag
+restart_mako () {
+  . ~/.cache/wal/colors.sh
+
+  conffile=~/.config/mako/config
+
+  declare -A colors
+  colors=(
+    ["background-color"]="${background}89"
+    ["text-color"]="$foreground"
+    ["border-color"]="$color11"
+  )
+
+  for color_name in "${!colors[@]}"; do
+    sed -i "0,/^$color_name.*/{s//$color_name=${colors[$color_name]}/}" $conffile
+  done
+
+  makoctl reload
+}
+
+while getopts ri: flag
 do
   case "${flag}" in
-    R) wal -R
-       ;;
     i) wal -i "${OPTARG}"
        cp ~/.cache/wal/colors-waybar.css ~/.config/waybar/
        if pgrep -x waybar > /dev/null; then
@@ -29,6 +46,7 @@ do
          awesome-client 'awesome.restart()' > /dev/null 2>&1
        fi
 
+       restart_mako
        pywalfox update
        ;;
     r) wal -q -i ~/Wallpapers/
@@ -44,6 +62,7 @@ do
          awesome-client 'awesome.restart()' > /dev/null 2>&1
        fi
 
+       restart_mako
        pywalfox update
        ;;
   esac

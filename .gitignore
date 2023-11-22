@@ -4,3 +4,6 @@ tmux/plugins
 .vim/.netrwhist
 .vim/plugged/*
 waybar/colors-waybar.css
+/emacs/eln-cache/
+/emacs/elpaca/
+/emacs/projectile-bookmarks.el

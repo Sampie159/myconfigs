@@ -29,8 +29,6 @@
   (sam/leader-key
    "f c" '((lambda () (interactive) (find-file "~/.config/emacs/init.el")) :wk "Edit emacs config")
    "TAB TAB" '(comment-line :wk "Comment lines")
-   "m d" '(mkdir :wk "Make directory")
-   "c d" '(cd :wk "Change directory")
    "b i" '(ibuffer :wk "Ibuffer")
    "e s" '(eshell :wk "Eshell")
    "t v" '(vterm-toggle :wk "Toggle vterm")
