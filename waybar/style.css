@@ -10,13 +10,13 @@
 }
 
 window#waybar {
-    background-color: transparent;
+    background: linear-gradient(90deg, @color10 0%, @color11 20%, @color12 40%, @color13 60%, @color14 80%, @color15 100%);
 }
 
 #window {
     font-weight: bold;
     font-family: "FiraCode Nerd Font";
-    background: linear-gradient(90deg, @color12 0%, @color13 100%);
+    /* background: linear-gradient(90deg, @color12 0%, @color13 100%); */
 }
 
 button {
@@ -36,7 +36,7 @@ button:hover {
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: @color8;
+    color: @color0;
 }
 
 #workspaces button:hover {
@@ -70,11 +70,11 @@ button:hover {
 #workspaces {
     padding: 0 3px;
     margin: 0 4px;
-    color: @color8;
+    color: @color0;
 }
 
 #language {
-    color: @color8;
+    color: @color0;
     padding: 0 5px;
     margin: 0 5px;
     min-width: 16px;
@@ -85,11 +85,11 @@ button:hover {
 }
 
 .modules-left {
-    background: linear-gradient(90deg, @color11 0%, @color12 100%);
+    /* background: linear-gradient(90deg, @color11 0%, @color12 100%); */
 }
 
 .modules-right {
-    background: linear-gradient(90deg, @color13 50%, @color13 100%);
+    /* background: linear-gradient(90deg, @color13 50%, @color13 100%); */
 }
 
 /* If workspaces is the leftmost module, omit left margin */

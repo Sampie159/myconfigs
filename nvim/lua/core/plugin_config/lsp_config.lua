@@ -20,7 +20,7 @@ local on_attach = function(client, bufnr)
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-  nmap('<C-K>', vim.lsp.buf.signature_help, 'Signature Documentation')
+  -- nmap('<C-K>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -155,8 +155,8 @@ lsp.racket_langserver.setup {
 
 lsp.zls.setup {
   cmd = { 'zls' },
-  filetypes = { 'zig' },
-  root_dir = lsp.util.root_pattern('.git', 'build.zig'),
+  filetypes = { 'zig', 'zir' },
+  root_dir = lsp.util.root_pattern('.git', 'build.zig', 'zls.json'),
   on_attach = on_attach,
   capabilities = capabilities
 }
@@ -172,6 +172,30 @@ lsp.hls.setup {
   },
   single_file_support = true,
   on_attach = on_attach,
+}
+
+lsp.kotlin_language_server.setup {
+  cmd = { "kotlin-language-server" },
+  filetypes = { "kotlin" },
+  root_dir = lsp.util.root_pattern(".git", "build.gradle", "build.gradle.kts", "pom.xml", "settings.gradle", "settings.gradle.kts"),
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+lsp.metals.setup {
+  cmd = { "metals", "--client-command", "vim.lsp.buf.document_highlight", "--server-command", "Metals", "--metals-server", "metals" },
+  filetypes = { "scala" },
+  root_dir = lsp.util.root_pattern("build.sbt", "build.sc", "build.gradle", "pom.xml", "build.xml", ".git", "build.gradle.kts"),
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+lsp.glsl_analyzer.setup {
+  cmd = { "glsl_analyzer" },
+  filetypes = { "glsl", "hlsl", "vert", "tesc", "tese", "geom", "frag", "comp", "mesh", "task", "rgen", "rint", "rahit", "rchit", "rmiss", "rcall" },
+  root_dir = lsp.util.root_pattern(".git", "compile_commands.json", "compile_flags.txt", ".hg"),
+  on_attach = on_attach,
+  capabilities = capabilities
 }
 
 -- Setup neovim lua configuration

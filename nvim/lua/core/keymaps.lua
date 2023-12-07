@@ -33,11 +33,11 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
-local opts = { buffer = 0 }
-vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
-vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
-vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
-vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
+-- local opts = { buffer = 0 }
+-- vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
+-- vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
+-- vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
+-- vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
 
 -- Move.nvim
 local moveopts = { noremap = true, silent = true }
@@ -81,3 +81,6 @@ vim.keymap.set("v", "<leader>S", ":sort!<CR>")
 
 -- Haskell Format
 vim.keymap.set("n", "<leader>hf", "<cmd>%!stylish-haskell<CR>")
+
+-- Generic Format
+vim.keymap.set("n", "<leader>F", "<cmd>Format<CR>")

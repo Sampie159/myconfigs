@@ -39,3 +39,5 @@
  (selected-frame)
  :font "FiraCode Nerd Font"
  :height 110)
+
+;;; configs.el ends here

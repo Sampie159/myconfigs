@@ -9,6 +9,7 @@
 
 (use-package rust-mode
   :ensure t
+  :config (setq lsp-rust-analyzer-cargo-watch-command "clippy")
   :hook ((rust-mode . lsp)))
 
 (use-package cmake-mode
@@ -124,6 +125,7 @@
 
 (use-package lsp-ui
   :ensure t
+  :config (setq lsp-ui-doc-show-with-cursor t)
   :commands lsp-ui-mode)
 
 (use-package lsp-ivy
@@ -189,3 +191,9 @@
   :config (progn
 	    (load-theme 'ewal-doom-one t)
 	    (enable-theme 'ewal-doom-one)))
+
+(use-package sly
+  :ensure t
+  :config (setq inferior-lisp-program "sbcl"))
+
+;;; packages.el ends here

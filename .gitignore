@@ -7,3 +7,9 @@ waybar/colors-waybar.css
 /emacs/eln-cache/
 /emacs/elpaca/
 /emacs/projectile-bookmarks.el
+/emacs/projectile-bookmarks.eld
+emacs/.local/harpoon
+emacs/racket-mode
+emacs/transient
+emacs/.lsp-session-v1
+discord-flags.conf

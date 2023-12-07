@@ -13,8 +13,8 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   -- Git plugins
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
+  -- 'tpope/vim-fugitive',
+  -- 'tpope/vim-rhubarb',
 
   -- Copilot
   -- 'github/copilot.vim',
@@ -39,13 +39,13 @@ local plugins = {
   'kdheepak/lazygit.nvim',
 
   -- Haskell Tools
-  {
-    'mrcjkb/haskell-tools.nvim',
-    branch = '1.x.x',
-  },
+  -- {
+  --   'mrcjkb/haskell-tools.nvim',
+  --   branch = '1.x.x',
+  -- },
 
   -- Debugging
-  'mfussenegger/nvim-dap',
+  -- 'mfussenegger/nvim-dap',
 
   -- Null Ls
   -- 'jose-elias-alvarez/null-ls.nvim',
@@ -54,7 +54,7 @@ local plugins = {
   'tpope/vim-sleuth',
 
   -- Typescript
-  'jose-elias-alvarez/typescript.nvim',
+  -- 'jose-elias-alvarez/typescript.nvim',
 
   -- Move.nvim
   "fedepujol/move.nvim",
@@ -86,7 +86,7 @@ local plugins = {
   'nvim-lua/plenary.nvim',
 
   -- ts autotag
-  'windwp/nvim-ts-autotag',
+  -- 'windwp/nvim-ts-autotag',
 
   {
     -- Autocompletion
@@ -95,10 +95,10 @@ local plugins = {
   },
 
   -- Vim/tmux
-  {
-    'christoomey/vim-tmux-navigator',
-    lazy = false,
-  },
+  -- {
+  --   'christoomey/vim-tmux-navigator',
+  --   lazy = false,
+  -- },
 
   -- Which key
   { 'folke/which-key.nvim',          opts = {} },
@@ -126,7 +126,7 @@ local plugins = {
   "nyoom-engineering/oxocarbon.nvim",
 
   -- Gotham
-  "whatyouhide/vim-gotham",
+  -- "whatyouhide/vim-gotham",
 
   {
     -- Set lualine as statusline
@@ -177,7 +177,7 @@ local plugins = {
   'nvim-tree/nvim-web-devicons',
 
   -- Pywal
-  'dylanaraps/wal.vim',
+  -- 'dylanaraps/wal.vim',
 
   -- KMonad
   'kmonad/kmonad-vim',

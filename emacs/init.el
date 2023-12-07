@@ -72,3 +72,4 @@
 ;; Keybindings
 (setq keybindings "~/.config/emacs/keybinds.el")
 (load-file keybindings)
+(put 'upcase-region 'disabled nil)
