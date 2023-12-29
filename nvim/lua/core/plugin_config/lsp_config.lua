@@ -198,6 +198,8 @@ lsp.glsl_analyzer.setup {
   capabilities = capabilities
 }
 
+lsp.gdscript.setup{}
+
 -- Setup neovim lua configuration
 require('neodev').setup()
 

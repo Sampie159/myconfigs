@@ -12,13 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  -- Git plugins
-  -- 'tpope/vim-fugitive',
-  -- 'tpope/vim-rhubarb',
-
-  -- Copilot
-  -- 'github/copilot.vim',
-
   -- Copilot.lua
   {
     'zbirenbaum/copilot.lua',
@@ -32,29 +25,8 @@ local plugins = {
   -- Ouroboros (C/C++ Source/Header Switching)
   'jakemason/ouroboros.nvim',
 
-  -- Copilot-cmp
-  -- 'zbirenbaum/copilot-cmp',
-
   -- Lazygit
   'kdheepak/lazygit.nvim',
-
-  -- Haskell Tools
-  -- {
-  --   'mrcjkb/haskell-tools.nvim',
-  --   branch = '1.x.x',
-  -- },
-
-  -- Debugging
-  -- 'mfussenegger/nvim-dap',
-
-  -- Null Ls
-  -- 'jose-elias-alvarez/null-ls.nvim',
-
-  -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
-
-  -- Typescript
-  -- 'jose-elias-alvarez/typescript.nvim',
 
   -- Move.nvim
   "fedepujol/move.nvim",
@@ -85,20 +57,11 @@ local plugins = {
   -- Plenary
   'nvim-lua/plenary.nvim',
 
-  -- ts autotag
-  -- 'windwp/nvim-ts-autotag',
-
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip', 'hrsh7th/cmp-buffer' },
   },
-
-  -- Vim/tmux
-  -- {
-  --   'christoomey/vim-tmux-navigator',
-  --   lazy = false,
-  -- },
 
   -- Which key
   { 'folke/which-key.nvim',          opts = {} },
@@ -125,24 +88,18 @@ local plugins = {
   -- Oxocarbon
   "nyoom-engineering/oxocarbon.nvim",
 
-  -- Gotham
-  -- "whatyouhide/vim-gotham",
-
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'ayu_dark',
+        theme = 'pywal-nvim',
         component_separators = '|',
         section_separators = '',
       },
     },
   },
-
-  -- Add indentation guides even on blank lines
-  -- { 'lukas-reineke/indent-blankline.nvim', main = "ibl",  opts = {} },
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim',         opts = {} },
@@ -177,7 +134,10 @@ local plugins = {
   'nvim-tree/nvim-web-devicons',
 
   -- Pywal
-  -- 'dylanaraps/wal.vim',
+  {
+    'AlphaTechnolog/pywal.nvim',
+    as = 'pywal',
+  },
 
   -- KMonad
   'kmonad/kmonad-vim',

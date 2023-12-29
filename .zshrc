@@ -219,10 +219,10 @@ alias mcb="meson compile -C build"
 alias mswcb="meson setup --wipe build && meson compile -C build"
 
 # CMake aliases
-alias cmin="cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug"
+alias cmin="cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -G Ninja"
 alias cmb="cmake --build build"
-alias cmi="sudo cmake --install . --prefix /usr/local"
-alias cminr="cmake -S . -B build -DCMAKE_BUILD_TYPE=Release"
+alias cmi="sudo cmake --install build --prefix /usr/local"
+alias cminr="cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -G Ninja"
 
 # pnpm
 export PNPM_HOME="/home/sampie/.local/share/pnpm"

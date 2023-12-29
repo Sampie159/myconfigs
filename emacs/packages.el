@@ -1,4 +1,6 @@
 ;; Use packages
+(use-package transient)
+
 (use-package magit
   :ensure t
   :bind ("C-c g" . magit-status))
@@ -12,10 +14,6 @@
   :config (setq lsp-rust-analyzer-cargo-watch-command "clippy")
   :hook ((rust-mode . lsp)))
 
-(use-package cmake-mode
-  :ensure t
-  :hook ((cmake-mode . lsp)))
-   
 (use-package elixir-mode
   :ensure t
   :hook ((elixir-mode . lsp))
@@ -26,7 +24,11 @@
   :hook
   ((go-mode . lsp)
    (before-save . lsp-organize-imports)))
-  
+
+(use-package odin-mode
+  :elpaca (:host github :repo "Sampie159/odin-mode")
+  :hook ((odin-mode . lsp)))
+
 (use-package racket-mode
   :ensure t
   :hook ((racket-mode . lsp)))
@@ -117,10 +119,17 @@
   :hook
   ((c-mode . lsp)
    (c++-mode . lsp)
+   (csharp-mode . lsp)
    (fortran-mode . lsp)
    (f90-mode . lsp)
    (lsp-mode . lsp-enable-which-key-integration))
-  :config (setq lsp-enable-on-type-formatting nil)
+  :config
+  (setq lsp-enable-on-type-formatting nil)
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection "/usr/bin/ols")
+		    :major-modes '(odin-mode)
+		    :server-id 'ols
+		    :multi-root t))
   :commands (lsp))
 
 (use-package lsp-ui
@@ -179,21 +188,17 @@
   (setq projectile-project-search-path '("~/projects/" "~/playgrounds/"))
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
-(use-package ewal
-  :ensure t
-  :init (setq ewal-use-built-in-always-p nil
-	      ewal-use-built-in-on-failure-p t
-	      ewal-json-file "~/.cache/wal/colors.json"
-	      ewal-dark-palette-p t
-	      ewal-use-built-in-palette "sexy-material"))
+(use-package doom-themes
+  :ensure t)
 
-(use-package ewal-doom-themes
-  :config (progn
-	    (load-theme 'ewal-doom-one t)
-	    (enable-theme 'ewal-doom-one)))
+(use-package solarized-theme
+  :config
+  (setq solarized-use-less-bold t)
+  (load-theme 'solarized-dark))
 
 (use-package sly
   :ensure t
   :config (setq inferior-lisp-program "sbcl"))
 
 ;;; packages.el ends here
+

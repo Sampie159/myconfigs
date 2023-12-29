@@ -5,10 +5,7 @@
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 
-;; Display relative line numbers
-(setq display-line-numbers-type 'relative)
-(global-display-line-numbers-mode t)
-
+;; Elpaca
 (defvar elpaca-installer-version 0.6)
 (defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
 (defvar elpaca-builds-directory (expand-file-name "builds/" elpaca-directory))
@@ -64,6 +61,13 @@
 
 (setq configs "~/.config/emacs/configs.el")
 (load-file configs)
+
+;; Language stuff
+(setq-default lsp-auto-guess-root t)
+(defvar lsp-language-id-configuration '((c-mode . "c")
+					(c++-mode . "c++")
+					(odin-mode . "odin")
+					(zig-mode . "zig")))
 
 ;; Installed packages found here
 (setq packages-file "~/.config/emacs/packages.el")

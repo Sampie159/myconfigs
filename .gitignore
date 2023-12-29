@@ -13,3 +13,10 @@ emacs/racket-mode
 emacs/transient
 emacs/.lsp-session-v1
 discord-flags.conf
+emacs/elpa
+emacs/projects
+emacs/auto-save-list
+emacs/eshell/history
+emacs/eshell/lastdir
+emacs/custom-file.el
+nvim/snippets/odin.lua
