@@ -20,3 +20,5 @@ emacs/eshell/history
 emacs/eshell/lastdir
 emacs/custom-file.el
 nvim/snippets/odin.lua
+/mako/config
+/waybar/colors-waybar.css

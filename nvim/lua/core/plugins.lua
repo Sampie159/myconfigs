@@ -28,6 +28,15 @@ local plugins = {
   -- Lazygit
   'kdheepak/lazygit.nvim',
 
+  -- Neogit
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "sindrets/diffview.nvim",
+    },
+    config = true,
+  },
+
   -- Move.nvim
   "fedepujol/move.nvim",
 

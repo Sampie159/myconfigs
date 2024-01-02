@@ -40,4 +40,6 @@
  :font "FiraCode Nerd Font"
  :height 110)
 
+(setq-default indent-tabs-mode t)
+
 ;;; configs.el ends here
