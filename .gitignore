@@ -22,3 +22,6 @@ emacs/custom-file.el
 nvim/snippets/odin.lua
 /mako/config
 /waybar/colors-waybar.css
+emacs/projectile.cache
+mako/config
+waybar/colors-waybar.css

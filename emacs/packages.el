@@ -1,4 +1,10 @@
-;; Use packages
+;;; package --- use-packages
+;;; Commentary:
+;; Holds all the packages that I find necessary
+
+;;; Code:
+(use-package seq)
+
 (use-package transient)
 
 (use-package magit
@@ -185,20 +191,22 @@
   :ensure t
   :config
   (projectile-mode +1)
-  (setq projectile-project-search-path '("~/projects/" "~/playgrounds/"))
+  (setq projectile-project-search-path '("~/projects/" "~/playgrounds/" "~/faculdade/"))
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
 (use-package doom-themes
   :ensure t)
 
-(use-package solarized-theme
-  :config
-  (setq solarized-use-less-bold t)
-  (load-theme 'solarized-dark))
+(use-package solarized-theme)
+  ;; :config
+  ;; (setq solarized-use-less-bold t)
+  ;; (load-theme 'solarized-dark))
 
 (use-package sly
   :ensure t
   :config (setq inferior-lisp-program "sbcl"))
 
-;;; packages.el ends here
+(use-package autothemer
+  :config (load-theme 'automata))
 
+;;; packages.el ends here

@@ -65,8 +65,11 @@
 ;; Language stuff
 (setq-default lsp-auto-guess-root t)
 (defvar lsp-language-id-configuration '((c-mode . "c")
-					(c++-mode . "c++")
+					(c++-mode . "cpp")
+					(f90-mode . "fortran")
+					(tuareg-mode . "ocaml")
 					(odin-mode . "odin")
+					(rust-mode . "rust")
 					(zig-mode . "zig")))
 
 ;; Installed packages found here

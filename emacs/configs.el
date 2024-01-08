@@ -24,8 +24,6 @@
 	"--header-insertion=never"
 	"--header-insertion-decorators=0"))
 
-(add-to-list 'default-frame-alist '(alpha-background . 90))
-
 (require 'org-tempo)
 (org-babel-do-load-languages
  'org-babel-load-languages ' ((C . t)))
@@ -37,9 +35,12 @@
 (set-face-attribute
  'default
  (selected-frame)
- :font "FiraCode Nerd Font"
- :height 110)
+ :font "AnonymicePro Nerd Font"
+ :height 130)
+
+(add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
 
 (setq-default indent-tabs-mode t)
+(setq-default tab-width 4)
 
 ;;; configs.el ends here
