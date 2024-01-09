@@ -65,12 +65,13 @@
 ;; Language stuff
 (setq-default lsp-auto-guess-root t)
 (defvar lsp-language-id-configuration '((c-mode . "c")
-					(c++-mode . "cpp")
-					(f90-mode . "fortran")
-					(tuareg-mode . "ocaml")
-					(odin-mode . "odin")
-					(rust-mode . "rust")
-					(zig-mode . "zig")))
+										(c++-mode . "cpp")
+										(cmake-mode . "cmake")
+										(f90-mode . "fortran")
+										(tuareg-mode . "ocaml")
+										(odin-mode . "odin")
+										(rust-mode . "rust")
+										(zig-mode . "zig")))
 
 ;; Installed packages found here
 (setq packages-file "~/.config/emacs/packages.el")
@@ -79,4 +80,3 @@
 ;; Keybindings
 (setq keybindings "~/.config/emacs/keybinds.el")
 (load-file keybindings)
-(put 'upcase-region 'disabled nil)

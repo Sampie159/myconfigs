@@ -21,6 +21,10 @@ programs=(tmux
     discord
     dmenu
     rofi
+    mako
+    pass
+    slurp
+    grim
 )
 
 for program in "${programs[@]}"; do
@@ -53,12 +57,13 @@ cd .. && rm -rf yay-git
 programs_aur=(
     python-pywalfox
     pywal-16-colors
-    hyprland-nvidia-git
+    hyprland-git
     swww
     xdg-desktop-portal-hyprland
     waybar wl-clipboard
     kmonad-bin
     rar
+    emacs-wayland
 )
 
 for program in "${programs_aur[@]}"; do
@@ -78,6 +83,7 @@ configs=(
     nvim
     picom
     rofi
+    emacs
 )
 
 for config in "${configs[@]}"; do
@@ -108,3 +114,14 @@ ln -sf ~/myconfigs/discord-flags.conf ~/.config/discord-flags.conf
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ln -sf ~/myconfigs/bin/* ~/.local/bin/
 ln -sf ~/myconfigs/templates/* ~/.config/wal/templates
+rm -rf ~/.emacs.d/
+
+mako_example="background-color=#00000000
+text-color=#000000
+border-color=#000000
+border-radius=8
+default-timeout=5000
+width=500"
+
+mkdir ~/.config/mako
+echo "$mako_example" > ~/.config/mako/config

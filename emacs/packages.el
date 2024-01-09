@@ -15,6 +15,9 @@
   :elpaca (:host github :repo "kmonad/kbd-mode")
   :commands (kbd-mode))
 
+(use-package cmake-mode
+  :hook ((cmake-mode . lsp)))
+
 (use-package rust-mode
   :ensure t
   :config (setq lsp-rust-analyzer-cargo-watch-command "clippy")

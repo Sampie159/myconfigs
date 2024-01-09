@@ -32,11 +32,13 @@
 
 (add-hook 'c++-mode-hook '(lambda () (c-set-offset 'innamespace [0])))
 
-(set-face-attribute
- 'default
- (selected-frame)
- :font "AnonymicePro Nerd Font"
- :height 130)
+;; (set-face-attribute
+;;  'default
+;;  (selected-frame)
+;;  :font "AnonymicePro Nerd Font"
+;;  :height 130)
+
+(set-frame-font "AnonymicePro Nerd Font 13" nil t)
 
 (add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
 
