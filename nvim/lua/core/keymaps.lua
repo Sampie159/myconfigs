@@ -2,14 +2,14 @@
 vim.keymap.set("n", "<leader>bk", "<cmd>:bdelete<CR>")
 
 -- Save file
-vim.keymap.set('n', '<leader>fs', '<cmd>write<cr>')
+-- vim.keymap.set('n', '<leader>fs', '<cmd>write<cr>')
 
 -- Quit file
-vim.keymap.set('n', ';q', ':q!<cr>')
+-- vim.keymap.set('n', ';q', ':q!<cr>')
 
 -- New file and directory
-vim.keymap.set('n', ';f', ':e ')
-vim.keymap.set('n', ';d', ':!mkdir -p ')
+-- vim.keymap.set('n', ';f', ':e ')
+-- vim.keymap.set('n', ';d', ':!mkdir -p ')
 
 -- Keymaps for better default experience
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -42,14 +42,10 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagn
 -- Move.nvim
 local moveopts = { noremap = true, silent = true }
 
-vim.keymap.set('n', '<A-j>', ':MoveLine(1)<CR>', moveopts)
-vim.keymap.set('n', '<A-k>', ':MoveLine(-1)<CR>', moveopts)
-vim.keymap.set('n', '<A-h>', ':MoveHChar(-1)<CR>', moveopts)
-vim.keymap.set('n', '<A-l>', ':MoveHChar(1)<CR>', moveopts)
-vim.keymap.set('v', '<A-j>', ':MoveBlock(1)<CR>', moveopts)
-vim.keymap.set('v', '<A-k>', ':MoveBlock(-1)<CR>', moveopts)
-vim.keymap.set('v', '<A-h>', ':MoveHBlock(-1)<CR>', moveopts)
-vim.keymap.set('v', '<A-l>', ':MoveHBlock(1)<CR>', moveopts)
+vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', moveopts)
+vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', moveopts)
+vim.keymap.set('v', '<A-j>', ':m \'>+1<CR>gv=gv', moveopts)
+vim.keymap.set('v', '<A-k>', ':m \'<-2<CR>gv=gv', moveopts)
 
 -- Copilot
 vim.keymap.set("n", "<leader>cp", "<cmd> Copilot enable<CR>")
@@ -68,10 +64,10 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Set tabspace and shiftwidth to 2
-vim.keymap.set("n", "<leader>2", "<cmd> set ts=2 sw=2<CR>")
+-- vim.keymap.set("n", "<leader>2", "<cmd> set ts=2 sw=2<CR>")
 
 -- Set tabspace and shiftwidth to 4
-vim.keymap.set("n", "<leader>4", "<cmd> set ts=4 sw=4<CR>")
+-- vim.keymap.set("n", "<leader>4", "<cmd> set ts=4 sw=4<CR>")
 
 -- Sort selected lines
 vim.keymap.set("v", "<leader>s", ":sort<CR>")

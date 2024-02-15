@@ -2,9 +2,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Fat Cursor
--- vim.opt.guicursor = ""
-
 -- Search highlight
 vim.o.hlsearch = false
 
@@ -38,9 +35,6 @@ vim.o.smartcase = true
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes'
 
--- Color column
-vim.o.colorcolumn = '80'
-
 -- Decrease update time
 vim.o.updatetime = 250
 vim.o.timeout = true
@@ -64,3 +58,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+vim.cmd([[autocmd FileType * set formatoptions-=ro]])

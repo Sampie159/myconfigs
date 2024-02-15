@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-programs=(tmux
+programs=(
+    tmux
     screenkey
     flameshot
     redshift
@@ -12,19 +13,21 @@ programs=(tmux
     alacritty
     awesome
     git
+    discord
     linux-headers
     picom
     firefox
     steam
     lutris
+    bpytop
     mpv
-    discord
     dmenu
     rofi
     mako
     pass
     slurp
     grim
+    zoxide
 )
 
 for program in "${programs[@]}"; do
@@ -50,9 +53,9 @@ if [ ! -d ~/.local/bin ]; then
     mkdir ~/.local/bin
 fi
 
-git clone https://aur.archlinux.org/yay-git.git && cd yay-git
-makepkg -si --noconfirm
-cd .. && rm -rf yay-git
+git clone https://aur.archlinux.org/paru.git && cd paru
+makepkg -si
+cd .. && rm -rf paru
 
 programs_aur=(
     python-pywalfox
@@ -64,12 +67,13 @@ programs_aur=(
     kmonad-bin
     rar
     emacs-wayland
+    vencord-desktop
 )
 
 for program in "${programs_aur[@]}"; do
     if ! command -v $program &> /dev/null; then
         echo "Installing $program"
-        yay -S $program --noconfirm
+        paru -S $program --noconfirm
     fi
 done
 

@@ -103,23 +103,6 @@ lsp.rust_analyzer.setup {
   },
 }
 
-lsp.fortls.setup {
-  cmd = { "fortls", "--notify_init", "--hover_signature", "--hover_language=fortran", "--use_signature_help" },
-  filetypes = { "fortran", "f77", "f90", "f95" },
-  root_dir = lsp.util.root_pattern(".git"),
-  on_attach = on_attach,
-  capabilities = capabilities
-}
-
--- Swi Prolog
-lsp.prolog_ls.setup {
-  cmd = { 'swipl', '--quiet', '--traditional', '--tty=raw', '--no-signals', '--no-packs', '--no-autoload' },
-  filetypes = { 'prolog' },
-  root_dir = lsp.util.root_pattern('.git'),
-  on_attach = on_attach,
-  capabilities = capabilities
-}
-
 -- C/C++ lsp config
 lsp.clangd.setup {
   capabilities = capabilities,
@@ -145,14 +128,6 @@ lsp.ocamllsp.setup {
   capabilities = capabilities
 }
 
-lsp.racket_langserver.setup {
-  cmd = { 'racket', '--lib', 'racket-langserver', '--', '--stdio' },
-  filetypes = { 'racket' },
-  root_dir = lsp.util.root_pattern('info.rkt', 'main.rkt', 'test.rkt', 'langserver.rkt'),
-  on_attach = on_attach,
-  capabilities = capabilities
-}
-
 lsp.zls.setup {
   cmd = { 'zls' },
   filetypes = { 'zig', 'zir' },
@@ -174,22 +149,6 @@ lsp.hls.setup {
   on_attach = on_attach,
 }
 
-lsp.kotlin_language_server.setup {
-  cmd = { "kotlin-language-server" },
-  filetypes = { "kotlin" },
-  root_dir = lsp.util.root_pattern(".git", "build.gradle", "build.gradle.kts", "pom.xml", "settings.gradle", "settings.gradle.kts"),
-  on_attach = on_attach,
-  capabilities = capabilities
-}
-
-lsp.metals.setup {
-  cmd = { "metals", "--client-command", "vim.lsp.buf.document_highlight", "--server-command", "Metals", "--metals-server", "metals" },
-  filetypes = { "scala" },
-  root_dir = lsp.util.root_pattern("build.sbt", "build.sc", "build.gradle", "pom.xml", "build.xml", ".git", "build.gradle.kts"),
-  on_attach = on_attach,
-  capabilities = capabilities
-}
-
 lsp.glsl_analyzer.setup {
   cmd = { "glsl_analyzer" },
   filetypes = { "glsl", "hlsl", "vert", "tesc", "tese", "geom", "frag", "comp", "mesh", "task", "rgen", "rint", "rahit", "rchit", "rmiss", "rcall" },
@@ -199,6 +158,22 @@ lsp.glsl_analyzer.setup {
 }
 
 lsp.gdscript.setup{}
+
+lsp.ols.setup {
+  cmd = { "ols", "--stdio" },
+  filetypes = { "odin" },
+  root_dir = lsp.util.root_pattern(".git", "odinfmt.json", "ols.json"),
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+lsp.pyright.setup {
+  cmd = { "pyright-langserver", "--stdio" },
+  filetypes = { "python" },
+  root_dir = lsp.util.root_pattern(".git", "requirements.txt", "pyproject.toml", "setup.py", "Pipfile", "pyrightconfig.json"),
+  on_attach = on_attach,
+  capabilities = capabilities
+}
 
 -- Setup neovim lua configuration
 require('neodev').setup()

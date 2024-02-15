@@ -14,7 +14,4 @@ require('core.plugin_config.neogit_config')
 
 -- Themes
 
--- require('core.plugin_config.catppuccin_config')
-require('core.plugin_config.oxocarbon_config')
--- require('core.plugin_config.gotham_config')
--- require('core.plugin_config.pywal_config')
+require('core.plugin_config.gruvbox_config')

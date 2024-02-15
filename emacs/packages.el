@@ -5,15 +5,13 @@
 ;;; Code:
 (use-package seq)
 
+(use-package ripgrep)
+
 (use-package transient)
 
 (use-package magit
   :ensure t
   :bind ("C-c g" . magit-status))
-
-(use-package kbd-mode
-  :elpaca (:host github :repo "kmonad/kbd-mode")
-  :commands (kbd-mode))
 
 (use-package cmake-mode
   :hook ((cmake-mode . lsp)))
@@ -22,11 +20,6 @@
   :ensure t
   :config (setq lsp-rust-analyzer-cargo-watch-command "clippy")
   :hook ((rust-mode . lsp)))
-
-(use-package elixir-mode
-  :ensure t
-  :hook ((elixir-mode . lsp))
-  :init (add-to-list 'exec-path "~/Downloads/elixir/"))
 
 (use-package go-mode
   :ensure t
@@ -38,9 +31,14 @@
   :elpaca (:host github :repo "Sampie159/odin-mode")
   :hook ((odin-mode . lsp)))
 
-(use-package racket-mode
-  :ensure t
-  :hook ((racket-mode . lsp)))
+(use-package php-mode
+  :hook ((php-mode . lsp)))
+
+(use-package svelte-mode
+  :hook ((svelte-mode . lsp)))
+
+(use-package typescript-mode
+  :hook ((typescript-mode . lsp)))
 
 (use-package tuareg
   :ensure t
@@ -197,19 +195,11 @@
   (setq projectile-project-search-path '("~/projects/" "~/playgrounds/" "~/faculdade/"))
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
-(use-package doom-themes
-  :ensure t)
+(use-package naysayer-theme)
 
-(use-package solarized-theme)
-  ;; :config
-  ;; (setq solarized-use-less-bold t)
-  ;; (load-theme 'solarized-dark))
-
-(use-package sly
-  :ensure t
-  :config (setq inferior-lisp-program "sbcl"))
-
-(use-package autothemer
-  :config (load-theme 'automata))
+(use-package lsp-pyright
+  :hook (python-mode . (lambda ()
+						 (require 'lsp-pyright)
+						 (lsp))))
 
 ;;; packages.el ends here

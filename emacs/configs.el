@@ -35,12 +35,13 @@
 ;; (set-face-attribute
 ;;  'default
 ;;  (selected-frame)
-;;  :font "AnonymicePro Nerd Font"
+;;  :font "FiraCode Nerd Font"
 ;;  :height 130)
 
-(set-frame-font "AnonymicePro Nerd Font 13" nil t)
+(set-frame-font "FiraCode Nerd Font 11" nil t)
 
 (add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
+(load-theme 'sampie)
 
 (setq-default indent-tabs-mode t)
 (setq-default tab-width 4)

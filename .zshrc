@@ -10,6 +10,7 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export RUSTC_WRAPPER=sccache
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -132,6 +133,8 @@ alias rb="reboot"
 alias sk="screenkey -p fixed -g 15%x5%+84%-15% &"
 alias skk="killall screenkey"
 alias btop="bpytop"
+alias sd="shutdown now"
+alias hx="helix"
 
 # Git aliases
 alias ga="git add"
@@ -219,10 +222,11 @@ alias mcb="meson compile -C build"
 alias mswcb="meson setup --wipe build && meson compile -C build"
 
 # CMake aliases
-alias cmin="cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -G Ninja"
-alias cmb="cmake --build build"
-alias cmi="sudo cmake --install build --prefix /usr/local"
-alias cminr="cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -G Ninja"
+alias cmin="cmake -S . -B debug -DCMAKE_BUILD_TYPE=Debug -G Ninja"
+alias cmd="cmake --build debug"
+alias cmi="sudo cmake --install release --prefix /usr/local"
+alias cminr="cmake -S . -B release -DCMAKE_BUILD_TYPE=Release -G Ninja"
+alias cmr="cmake --build release"
 
 # pnpm
 export PNPM_HOME="/home/sampie/.local/share/pnpm"
@@ -266,3 +270,19 @@ alias hypr="Hyprland"
 export PATH="/home/sampie/.turso:$PATH"
 
 [ -f "/home/sampie/.ghcup/env" ] && source "/home/sampie/.ghcup/env" # ghcup-env
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/home/sampie/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<
+
+eval "$(starship init zsh)"
+eval "$(zoxide init --cmd cd zsh)"

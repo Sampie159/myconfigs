@@ -1,155 +1,152 @@
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system {
-    'git',
-    'clone',
-    '--filter=blob:none',
-    'https://github.com/folke/lazy.nvim.git',
-    '--branch=stable', -- latest stable release
-    lazypath,
-  }
+    vim.fn.system {
+        'git',
+        'clone',
+        '--filter=blob:none',
+        'https://github.com/folke/lazy.nvim.git',
+        '--branch=stable', -- latest stable release
+        lazypath,
+    }
 end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  -- Copilot.lua
-  {
-    'zbirenbaum/copilot.lua',
-    cmd = "Copilot",
-    event = "InsertEnter",
-  },
-
-  -- Todo Comments
-  'folke/todo-comments.nvim',
-
-  -- Ouroboros (C/C++ Source/Header Switching)
-  'jakemason/ouroboros.nvim',
-
-  -- Lazygit
-  'kdheepak/lazygit.nvim',
-
-  -- Neogit
-  {
-    "NeogitOrg/neogit",
-    dependencies = {
-      "sindrets/diffview.nvim",
+    -- Copilot.lua
+    {
+        'zbirenbaum/copilot.lua',
+        cmd = "Copilot",
+        event = "InsertEnter",
     },
-    config = true,
-  },
 
-  -- Move.nvim
-  "fedepujol/move.nvim",
+    -- Todo Comments
+    'folke/todo-comments.nvim',
 
-  -- Oil
-  'stevearc/oil.nvim',
+    -- Ouroboros (C/C++ Source/Header Switching)
+    'jakemason/ouroboros.nvim',
 
-  -- Harpoon
-  'ThePrimeagen/harpoon',
+    -- Lazygit
+    'kdheepak/lazygit.nvim',
 
-  -- vim-be-good
-  'ThePrimeagen/vim-be-good',
-
-  {
-    -- LSP Configuration & Plugins
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      -- Automatically install LSPs to stdpath for neovim
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-
-      { 'j-hui/fidget.nvim', opts = {}, tag = 'legacy' },
-
-      'folke/neodev.nvim',
+    -- Neogit
+    {
+        "NeogitOrg/neogit",
+        dependencies = {
+            "sindrets/diffview.nvim",
+        },
+        config = true,
     },
-  },
 
-  -- Plenary
-  'nvim-lua/plenary.nvim',
+    -- Oil
+    'stevearc/oil.nvim',
 
-  {
-    -- Autocompletion
-    'hrsh7th/nvim-cmp',
-    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip', 'hrsh7th/cmp-buffer' },
-  },
+    -- Harpoon
+    'ThePrimeagen/harpoon',
 
-  -- Which key
-  { 'folke/which-key.nvim',          opts = {} },
+    -- vim-be-good
+    'ThePrimeagen/vim-be-good',
 
-  {
-    -- Adds git releated signs to the gutter, as well as utilities for managing changes
-    'lewis6991/gitsigns.nvim',
-    opts = {
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-      },
+    {
+        -- LSP Configuration & Plugins
+        'neovim/nvim-lspconfig',
+        dependencies = {
+            -- Automatically install LSPs to stdpath for neovim
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
+
+            { 'j-hui/fidget.nvim', opts = {}, tag = 'legacy' },
+
+            'folke/neodev.nvim',
+        },
     },
-  },
 
-  -- Catppuccin
-  {
-    "catppuccin/nvim", name = "catppuccin"
-  },
+    -- Plenary
+    'nvim-lua/plenary.nvim',
 
-  -- Oxocarbon
-  "nyoom-engineering/oxocarbon.nvim",
-
-  {
-    -- Set lualine as statusline
-    'nvim-lualine/lualine.nvim',
-    opts = {
-      options = {
-        icons_enabled = true,
-        theme = 'pywal-nvim',
-        component_separators = '|',
-        section_separators = '',
-      },
+    {
+        -- Autocompletion
+        'hrsh7th/nvim-cmp',
+        dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip', 'hrsh7th/cmp-buffer' },
     },
-  },
 
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim',         opts = {} },
+    -- Which key
+    { 'folke/which-key.nvim',          opts = {} },
 
-  -- Fuzzy Finder
-  { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
-  'nvim-telescope/telescope-ui-select.nvim',
-
-  {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    build = 'make',
-    cond = function()
-      return vim.fn.executable 'make' == 1
-    end,
-  },
-
-  {
-    -- Highlight, edit, and navigate code
-    'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
+    {
+        -- Adds git releated signs to the gutter, as well as utilities for managing changes
+        'lewis6991/gitsigns.nvim',
+        opts = {
+            signs = {
+                add = { text = '+' },
+                change = { text = '~' },
+                delete = { text = '_' },
+                topdelete = { text = '‾' },
+                changedelete = { text = '~' },
+            },
+        },
     },
-    config = function()
-      pcall(require('nvim-treesitter.install').update { with_sync = true })
-    end,
-  },
 
-  -- TreeSitter Context
-  'nvim-treesitter/nvim-treesitter-context',
+    -- Catppuccin
+    {
+        "catppuccin/nvim", name = "catppuccin"
+    },
 
-  -- Web devicons
-  'nvim-tree/nvim-web-devicons',
+    -- Oxocarbon
+    "nyoom-engineering/oxocarbon.nvim",
 
-  -- Pywal
-  {
-    'AlphaTechnolog/pywal.nvim',
-    as = 'pywal',
-  },
+    {
+        -- Set lualine as statusline
+        'nvim-lualine/lualine.nvim',
+        opts = {
+            options = {
+                icons_enabled = true,
+                theme = 'gruvbox-material',
+                component_separators = '|',
+                section_separators = '',
+            },
+        },
+    },
 
-  -- KMonad
-  'kmonad/kmonad-vim',
+    -- "gc" to comment visual regions/lines
+    { 'numToStr/Comment.nvim',         opts = {} },
+
+    -- Fuzzy Finder
+    { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
+    'nvim-telescope/telescope-ui-select.nvim',
+
+    {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make',
+        cond = function()
+            return vim.fn.executable 'make' == 1
+        end,
+    },
+
+    {
+        -- Highlight, edit, and navigate code
+        'nvim-treesitter/nvim-treesitter',
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter-textobjects',
+        },
+        config = function()
+            pcall(require('nvim-treesitter.install').update { with_sync = true })
+        end,
+    },
+
+    -- TreeSitter Context
+    'nvim-treesitter/nvim-treesitter-context',
+
+    -- Web devicons
+    'nvim-tree/nvim-web-devicons',
+
+    -- KMonad
+    'kmonad/kmonad-vim',
+
+    -- Poimandres
+    'olivercederborg/poimandres.nvim',
+
+    -- Gruvbox
+    'sainnhe/gruvbox-material',
 }
 
 require('lazy').setup(plugins, {})
