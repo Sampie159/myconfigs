@@ -5,6 +5,7 @@ olsjson="{
     \"collections\": [
         { \"name\": \"core\", \"path\": \"/usr/lib/odin/core\" },
         { \"name\": \"vendor\", \"path\": \"/usr/lib/odin/vendor\" },
+        { \"name\": \"shared\", \"path\": \"/usr/lib/odin/shared\" },
     ],
     \"enable_semantic_tokens\": true,
     \"enable_snippets\": true,

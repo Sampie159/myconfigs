@@ -20,13 +20,14 @@ local plugins = {
     },
 
     -- Todo Comments
-    'folke/todo-comments.nvim',
+    'travisvroman/todo-comments.nvim',
+    -- 'folke/todo-comments.nvim',
 
     -- Ouroboros (C/C++ Source/Header Switching)
     'jakemason/ouroboros.nvim',
 
     -- Lazygit
-    'kdheepak/lazygit.nvim',
+    -- 'kdheepak/lazygit.nvim',
 
     -- Neogit
     {
@@ -147,6 +148,15 @@ local plugins = {
 
     -- Gruvbox
     'sainnhe/gruvbox-material',
+
+    -- Parinfer
+    'gpanders/nvim-parinfer',
+
+    -- Yuck.vim
+    'elkowar/yuck.vim',
+
+    -- mini.surround
+    'echasnovski/mini.surround',
 }
 
 require('lazy').setup(plugins, {})
