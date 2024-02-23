@@ -27,16 +27,16 @@ local plugins = {
     'jakemason/ouroboros.nvim',
 
     -- Lazygit
-    -- 'kdheepak/lazygit.nvim',
+    'kdheepak/lazygit.nvim',
 
     -- Neogit
-    {
-        "NeogitOrg/neogit",
-        dependencies = {
-            "sindrets/diffview.nvim",
-        },
-        config = true,
-    },
+    -- {
+    --     "NeogitOrg/neogit",
+    --     dependencies = {
+    --         "sindrets/diffview.nvim",
+    --     },
+    --     config = true,
+    -- },
 
     -- Oil
     'stevearc/oil.nvim',

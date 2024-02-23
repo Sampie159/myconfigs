@@ -80,6 +80,3 @@ vim.keymap.set("n", "<leader>hf", "<cmd>%!stylish-haskell<CR>")
 
 -- Generic Format
 vim.keymap.set("n", "<leader>F", "<cmd>Format<CR>")
-
--- Neogit
-vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<CR>")

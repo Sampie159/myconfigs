@@ -1,4 +1,4 @@
--- Leader as <space>
+-- Leader as <space>confi
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
