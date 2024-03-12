@@ -51,13 +51,13 @@ vim.keymap.set('v', '<A-k>', ':m \'<-2<CR>gv=gv', moveopts)
 vim.keymap.set("n", "<leader>cp", "<cmd> Copilot enable<CR>")
 
 -- Code navigation
-vim.keymap.set("i", "<C-b>", "<ESC>I")
-vim.keymap.set("n", "<C-b>", "<ESC>^")
-vim.keymap.set("i", "<C-e>", "<ESC>A")
-vim.keymap.set("n", "<C-e>", "<ESC>$")
-vim.keymap.set("i", "<M-f>", "<ESC><Space>Wi")
-vim.keymap.set("i", "<M-b>", "<ESC>Bi")
-vim.keymap.set("i", "<M-d>", "<ESC>cW")
+-- vim.keymap.set("i", "<C-b>", "<ESC>I")
+-- vim.keymap.set("n", "<C-b>", "<ESC>^")
+-- vim.keymap.set("i", "<C-e>", "<ESC>A")
+-- vim.keymap.set("n", "<C-e>", "<ESC>$")
+-- vim.keymap.set("i", "<M-f>", "<ESC><Space>Wi")
+-- vim.keymap.set("i", "<M-b>", "<ESC>Bi")
+-- vim.keymap.set("i", "<M-d>", "<ESC>cW")
 
 -- C-d C-u center screen
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -80,3 +80,6 @@ vim.keymap.set("n", "<leader>hf", "<cmd>%!stylish-haskell<CR>")
 
 -- Generic Format
 vim.keymap.set("n", "<leader>F", "<cmd>Format<CR>")
+
+-- Carbon Now
+vim.keymap.set("v", "<leader>cn", "<cmd>CarbonNow<CR>", { silent = true })

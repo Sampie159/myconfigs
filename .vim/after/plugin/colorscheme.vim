@@ -1,1 +1,1 @@
-colorscheme gotham
+colorscheme gruvbox

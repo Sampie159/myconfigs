@@ -15,16 +15,16 @@ local snippets, autosnippets = {}, {}
 
 local scts = s('scts', fmt([[
 <script lang="ts">
-  {}
+    {}
 </script>
 ]], {
     i(1, '// Your code here')
   }))
 table.insert(autosnippets, scts)
 
-local stp = s('stp', fmt([[
-<style lang="post
-  {}
+local stp = s('sts', fmt([[
+<style lang="scss">
+    {}
 </style>
 ]], {
     i(1, '// Your code here')

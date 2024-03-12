@@ -1,4 +1,4 @@
-export EDITOR="emacs"
+export EDITOR="nvim"
 export CC="clang"
 export CXX="clang++"
 export RUSTC_WRAPPER="sccache"

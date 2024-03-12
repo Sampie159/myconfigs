@@ -24,22 +24,26 @@ local plugins = {
     -- 'folke/todo-comments.nvim',
 
     -- Ouroboros (C/C++ Source/Header Switching)
-    'jakemason/ouroboros.nvim',
+    -- 'jakemason/ouroboros.nvim',
+    'Sampie159/ouroboros.nvim',
 
     -- Lazygit
     'kdheepak/lazygit.nvim',
 
     -- Neogit
-    -- {
-    --     "NeogitOrg/neogit",
-    --     dependencies = {
-    --         "sindrets/diffview.nvim",
-    --     },
-    --     config = true,
-    -- },
+    {
+        "NeogitOrg/neogit",
+        dependencies = {
+            "sindrets/diffview.nvim",
+        },
+        config = true,
+    },
+
+    -- git-conflict.nvim
+    { 'akinsho/git-conflict.nvim', version = "*", config = true },
 
     -- Oil
-    'stevearc/oil.nvim',
+    -- 'stevearc/oil.nvim',
 
     -- Harpoon
     'ThePrimeagen/harpoon',
@@ -157,6 +161,15 @@ local plugins = {
 
     -- mini.surround
     'echasnovski/mini.surround',
+
+    -- Orgmode
+    {
+        'nvim-orgmode/orgmode',
+        event = 'VeryLazy',
+    },
+
+    -- Gleam
+    'gleam-lang/gleam.vim',
 }
 
 require('lazy').setup(plugins, {})

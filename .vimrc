@@ -22,7 +22,6 @@ set history=1000
 set wildmenu
 set wildmode=list:longest
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
-set colorcolumn=90
 set termguicolors
 set omnifunc=syntaxcomplete#Complete
 highlight Cursor guifg=white guibg=black
@@ -39,9 +38,11 @@ let g:loaded_matchparen = 1
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-commentary'
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'prabirshrestha/vim-lsp'
 
 call plug#end()
 
@@ -50,11 +51,6 @@ call plug#end()
 "MAPPINGS --------------------------------------------------------------- {{{
 
 let mapleader = " "
-
-nnoremap <leader>fs :write<CR>
-nnoremap ;q :quit!<CR>
-nnoremap ;f :e 
-nnoremap ;d :!mkdir -p 
 
 nnoremap n nzz
 nnoremap N Nzz
@@ -67,9 +63,6 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
 nnoremap <leader>bk :bdelete<CR>
-
-" nnoremap o o<Esc>
-" nnoremap O O<Esc>
 
 nnoremap ;s :%s/\<<C-r><C-w>\>/<C-w>/gI<Left><Left><Left>
 
@@ -93,11 +86,6 @@ vnoremap <leader>S :sort!<CR>
 augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
-augroup END
-
-augroup file_configurations
-    autocmd BufNewFile,BufRead *.h,*.c :set filetype=c tabstop=2 shiftwidth=2
-    autocmd BufNewFile,BufRead *.hh,*.hpp,*.cc,*.cpp :set tabstop=2 shiftwidth=2
 augroup END
 
 " }}}

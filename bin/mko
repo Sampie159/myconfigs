@@ -6,6 +6,7 @@ olsjson="{
         { \"name\": \"core\", \"path\": \"/usr/lib/odin/core\" },
         { \"name\": \"vendor\", \"path\": \"/usr/lib/odin/vendor\" },
         { \"name\": \"shared\", \"path\": \"/usr/lib/odin/shared\" },
+        { \"name\": \"base\", \"path\": \"/usr/lib/odin/base\" },
     ],
     \"enable_semantic_tokens\": true,
     \"enable_snippets\": true,

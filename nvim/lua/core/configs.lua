@@ -60,3 +60,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 vim.cmd([[autocmd FileType * set formatoptions-=ro]])
+
+vim.o.autoread = true
+
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = 'nc'
